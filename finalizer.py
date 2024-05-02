@@ -4,13 +4,17 @@ import datetime
 def run_command(command):
     """Run a command using subprocess and return the output, capturing stderr."""
     try:
-        result = subprocess.run(command, shell=True, check=True, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        if result.stderr:
+        result = subprocess.run(command, shell=True, check=False, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        if result.returncode == 0:
+            if result.stderr:
+                print("Command executed with informational message:", result.stderr)
+            return result.stdout
+        else:
             print("Command executed but returned an error:", result.stderr)
-        return result.stdout
+            return None
     except subprocess.CalledProcessError as e:
         print("Error running command:", str(e))
-        print("Error output:", e.stderr)
+        print("Error output:", e.stderr)  # This will print the error output
         return None
 
 def update_development_log():
@@ -44,16 +48,17 @@ def git_operations():
     
     print("Committing changes...")
     commit_message = "Update session: " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-    run_command(f"git commit -m \"{commit_message}\"")
+    if run_command(f"git commit -m \"{commit_message}\""):
+        print("Changes committed.")
     
     print("Pushing changes to GitHub...")
-    return run_command("git push origin master")
+    if run_command("git push origin master") is not None:
+        print("Successfully updated and pushed to GitHub.")
+    else:
+        print("Failed to push changes to GitHub.")
 
 if __name__ == "__main__":
     print("Please ensure to manually update 'requirements-frozen.txt' if any dependencies have changed.")
     update_development_log()
     update_changelog()
-    if git_operations():
-        print("Successfully updated and pushed to GitHub.")
-    else:
-        print("Failed to push changes to GitHub.")
+    git_operations()

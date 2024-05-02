@@ -2,3 +2,7 @@ Changes on 2024-05-02 13:18:39:
 - Modified roject_journal.txt
 - Modified requirements-frozen.txt
 - Added finalizer.py
+Changes on 2024-05-02 13:22:55:
+- Modified inalizer.py
+- Modified project_journal.txt
+- Added simpleFileToTrack_IfChanged.txt

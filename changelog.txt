@@ -6,3 +6,8 @@ Changes on 2024-05-02 13:22:55:
 - Modified inalizer.py
 - Modified project_journal.txt
 - Added simpleFileToTrack_IfChanged.txt
+Changes on 2024-05-02 13:30:23:
+- Modified roject_journal.txt
+- Modified specter2_model.py
+- Added specter2_model_Example.py
+- Added specter2_model_Small.py

@@ -1,0 +1,37 @@
+# Project Development Log
+
+## Initial Setup
+- [Date: NaN] Established the basic framework for the thesis topic generation project. Initial scripts developed for parsing JSON data.
+
+## Issues Encountered
+### Data Handling
+- Output.json file too large for efficient handling in standard text editors like VS Code.
+  - Future Plan: Implemented data segmentation to manage JSON size. Further plans to introduce pagination or incremental data loading.
+- Incorrect data parsing due to unexpected nested JSON structure.
+  - Action Taken: Modified parsing algorithms to handle deeper nested structures.
+
+### Environment Configuration
+- Potential pollution of global Python environment recognized.
+  - Solution: Adopted virtual environments for project isolation. Use command `.venv\Scripts\activate` to activate.
+
+### Data Diversity
+- Some data fields are in Finnish, complicating uniform data processing.
+  - Future Plan: Explore integration of a translation API to handle multilingual data.
+
+## Development Improvements
+- Dynamic tagging system for output files to improve data management and traceability planned.
+- Flag mechanism for identifying fields with missing or problematic data was considered but found unnecessary after deeper data structure analysis.
+
+### Script Enhancements
+- [Date: NaN] Deprecated `data_preparation.py` in favor of `v2_data_preparation.py`, which outputs results to `prepared_datasets` directory and allows for more flexible dataset creation.
+
+## Future Goals
+- Introduce dynamic adjustment to fetching limits based on system feedback, akin to a file system loader.
+- Implement data validation checks at the start of scripts to ensure environment readiness and data integrity.
+
+## Version Control
+- Start using version control (e.g., Git) to manage project changes efficiently.
+  - Initial Setup: Run `git init` in the project directory to initialize a new Git repository.
+  - Commit Changes: Use `git add .` to stage changes and `git commit -m "commit message"` to commit updates.
+  - Regular Updates: Commit changes frequently with descriptive messages to keep a clear record of project evolution.
+  - Backup: Consider setting up a remote repository on platforms like GitHub or GitLab for online backup and collaboration.

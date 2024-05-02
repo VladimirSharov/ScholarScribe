@@ -1,0 +1,4 @@
+Changes on 2024-05-02 13:18:39:
+- Modified roject_journal.txt
+- Modified requirements-frozen.txt
+- Added finalizer.py

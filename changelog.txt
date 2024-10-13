@@ -11,3 +11,27 @@ Changes on 2024-05-02 13:30:23:
 - Modified specter2_model.py
 - Added specter2_model_Example.py
 - Added specter2_model_Small.py
+Changes on 2024-10-13 20:30:42:
+- Modified repared_datasets/title_abstract.json
+- Modified prepared_datasets/title_subjects.json
+- Modified project_journal.txt
+- Modified specter2_model_Small.py
+- Modified v2_data_preparation.py
+- Added Faculty_encoding.py
+- Added Title_feature_extractor.py
+- Added depricated_versions/faculty_related_v2_translation.json
+- Added depricated_versions/title_abstract.json
+- Added depricated_versions/title_subjects.json
+- Added embeddings/
+- Added prepared_datasets/faculty_related_v2.json
+- Added prepared_datasets/faculty_related_v2_test.json
+- Added prepared_datasets/faculty_related_v2_train.json
+- Added prepared_datasets/faculty_related_v2_val.json
+- Added prepared_datasets/full_details_tfidf.json
+- Added prepared_datasets/single_language_faculties.json
+- Added prepared_datasets/unique_faculty_pairs.json
+- Added stratify_split.py
+- Added translateFieldsNew.py
+- Added translateFieldsNew_test.py
+- Added translateFieldsNew_v2.py
+- Added translated_data.json

@@ -1,6 +1,9 @@
 import json
 import os
 
+# ToDo
+## Create script which will output label file (data_file_name+label, in folder labels, so later I could auto based on file name)
+
 def filter_and_prepare_data(input_file, datasets_info, field_name_mapping, output_dir):
     try:
         # Ensure output directory exists
@@ -45,7 +48,7 @@ if __name__ == "__main__":
         'title_abstract.json': {"dc.title", "dc.description.abstract"},
         'title_subjects.json': {"dc.title", "dc.description.abstract", "dc.subject.other", "dc.subject.yso"},
         'full_details.json': {"dc.title", "dc.description.abstract", "dc.subject.other", "dc.subject.yso", "dc.language.iso", "dc.date.issued"},
-        'faculty_related.json': {"dc.title", "dc.contributor.tiedekunta", "dc.subject.other", "dc.subject.yso"}
+        'faculty_related_v2.json': {"dc.title", "dc.contributor.tiedekunta", "dc.subject.other", "dc.subject.yso","dc.date.issued"}
     }
     field_name_mapping = {
         "dc.contributor.tiedekunta": "faculty",

@@ -54,3 +54,41 @@ License
 
 ### Development Log
 See project_journal.txt for detailed logs of development progress, issues, and notes.
+
+### Scheme
+project/
+│
+├── data_collection/
+│   ├── api_data_collector.py
+│   └── output.json
+│
+├── data_preparation/
+│   ├── v2_data_preparation.py
+│   ├── prepared_datasets/
+│   ├── field_translation/
+│   ├── field_featureExtraction/
+│   └── field_labelClassify/  # Optional for tagging or label creation
+│
+├── data_validation/
+│   ├── json_value_occurrence_counter.py
+│   └── json_data_integrity_checker.py
+│
+├── data_split/
+│   └── stratify_split.py
+│
+├── model_embedding/
+│   ├── specter2_embedding.py
+│   └── embeddings/
+│
+├── model_training/
+│   ├── specter2_model.py
+│   └── trained_models/
+│
+├── model_validation/
+│   └── model_evaluation.py
+│
+├── model_usage/
+│   └── predict_tags.py
+│
+└── model_comparison/
+    └── comparison.py

@@ -46,3 +46,13 @@
 
 ## Update on 2024-10-13 20:30:42
 - Finalized session updates.
+-It becomes harder to manage project. Should you at least delete depricated_versions folder; move prepared_datasets, resultOnSmallerSample to trash?
+-ToDo update finalizer to run recordProjectStructure and update message to include exact "pip freeze > .\project_utils\requirements-frozen.txt" and reminder to run .venv in correct folder
+-move field_translate, prepared_datasets, resultOnSmallerSample to depricated_versions
+-check if path exist, else create if you design to create new directory/make it flexible
+-what if in case of failure, long work, but error delete all result?
+-should I make journal for dataset modification? I think you are out of style for writing journal, aren't you programmer, to decide on your own?
+-What will happen if machine is too weak and need option to proceed function on cloud computing service?
+
+## Update on 2024-10-25 13:08:35
+- Finalized session updates.

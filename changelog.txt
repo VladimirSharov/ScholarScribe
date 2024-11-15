@@ -91,3 +91,14 @@ Changes on 2024-10-25 13:08:35:
 - Added field_featureExtraction/
 - Added model_embedding/
 - Added project_utils/
+Changes on 2024-11-15 06:33:38:
+- Modified roject_journal.txt
+- Modified project_utils/requirements-frozen.txt
+- Added data_validation/json_data_format_analyzer.py
+- Added data_validation/json_dataset_field_metric.py
+- Added data_validation/output_DataFormats.json
+- Added data_validation/output_DataValidation.json
+- Added data_validation/output_json_dataset_field_metrics_5.json
+- Added depricated_versions/output_DataValidation.json
+- Added depricated_versions/output_DataValidation_4.json
+- Added model_embedding/deberta_test.py

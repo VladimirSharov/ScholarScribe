@@ -1,0 +1,398 @@
+{
+    "dc.contributor.author": {
+        "total_occurrences": 14862,
+        "data_types": {
+            "str": 14862
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.date.accessioned": {
+        "total_occurrences": 13499,
+        "data_types": {
+            "str": 13499
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.date.available": {
+        "total_occurrences": 13499,
+        "data_types": {
+            "str": 13499
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.date.issued": {
+        "total_occurrences": 13499,
+        "data_types": {
+            "str": 13499
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.identifier.other": {
+        "total_occurrences": 7661,
+        "data_types": {
+            "str": 7661
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.identifier.uri": {
+        "total_occurrences": 13499,
+        "data_types": {
+            "str": 13499
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.format.extent": {
+        "total_occurrences": 13433,
+        "data_types": {
+            "str": 13433
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.format.mimetype": {
+        "total_occurrences": 11086,
+        "data_types": {
+            "str": 11086
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.language.iso": {
+        "total_occurrences": 13515,
+        "data_types": {
+            "str": 13515
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.rights": {
+        "total_occurrences": 15324,
+        "data_types": {
+            "str": 15324
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.subject.other": {
+        "total_occurrences": 35354,
+        "data_types": {
+            "str": 35354
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.title": {
+        "total_occurrences": 13499,
+        "data_types": {
+            "str": 13499
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.identifier.urn": {
+        "total_occurrences": 13499,
+        "data_types": {
+            "str": 13499
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.type.dcmitype": {
+        "total_occurrences": 5057,
+        "data_types": {
+            "str": 5057
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.type.ontasot": {
+        "total_occurrences": 26998,
+        "data_types": {
+            "str": 26998
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.contributor.tiedekunta": {
+        "total_occurrences": 24044,
+        "data_types": {
+            "str": 24044
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.contributor.laitos": {
+        "total_occurrences": 24809,
+        "data_types": {
+            "str": 24809
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.contributor.yliopisto": {
+        "total_occurrences": 27004,
+        "data_types": {
+            "str": 27004
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.contributor.oppiaine": {
+        "total_occurrences": 24300,
+        "data_types": {
+            "str": 24300
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.rights.accesslevel": {
+        "total_occurrences": 9163,
+        "data_types": {
+            "str": 9163
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.type.publication": {
+        "total_occurrences": 11085,
+        "data_types": {
+            "str": 11085
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.contributor.oppiainekoodi": {
+        "total_occurrences": 13574,
+        "data_types": {
+            "str": 13574
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.subject.yso": {
+        "total_occurrences": 67221,
+        "data_types": {
+            "str": 67221
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.format.content": {
+        "total_occurrences": 11085,
+        "data_types": {
+            "str": 11085
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.type.okm": {
+        "total_occurrences": 11086,
+        "data_types": {
+            "str": 11086
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.contributor.advisor": {
+        "total_occurrences": 7390,
+        "data_types": {
+            "str": 7390
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.description.abstract": {
+        "total_occurrences": 10051,
+        "data_types": {
+            "str": 10051
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.date.updated": {
+        "total_occurrences": 4067,
+        "data_types": {
+            "str": 4067
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.subject.method": {
+        "total_occurrences": 834,
+        "data_types": {
+            "str": 834
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.rights.copyright": {
+        "total_occurrences": 11647,
+        "data_types": {
+            "str": 11647
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.title.alternative": {
+        "total_occurrences": 1178,
+        "data_types": {
+            "str": 1178
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.rights.accessrights": {
+        "total_occurrences": 5973,
+        "data_types": {
+            "str": 5973
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "jyx.subject.uri": {
+        "total_occurrences": 4278,
+        "data_types": {
+            "str": 4278
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "jyx.includeIn.OAI": {
+        "total_occurrences": 38,
+        "data_types": {
+            "str": 38
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.publisher": {
+        "total_occurrences": 72,
+        "data_types": {
+            "str": 72
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.relation.haspart": {
+        "total_occurrences": 1,
+        "data_types": {
+            "str": 1
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.subject": {
+        "total_occurrences": 1,
+        "data_types": {
+            "str": 1
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.relation.isversionof": {
+        "total_occurrences": 9,
+        "data_types": {
+            "str": 9
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.description": {
+        "total_occurrences": 3,
+        "data_types": {
+            "str": 3
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "jyx.note": {
+        "total_occurrences": 2,
+        "data_types": {
+            "str": 2
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "jyx.note.uri": {
+        "total_occurrences": 1,
+        "data_types": {
+            "str": 1
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.type.coar": {
+        "total_occurrences": 3,
+        "data_types": {
+            "str": 3
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.rights.url": {
+        "total_occurrences": 8,
+        "data_types": {
+            "str": 8
+        },
+        "flags": [
+            "L"
+        ]
+    },
+    "dc.contributor.other": {
+        "total_occurrences": 1,
+        "data_types": {
+            "str": 1
+        },
+        "flags": [
+            "L"
+        ]
+    }
+}

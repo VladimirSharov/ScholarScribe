@@ -1,0 +1,166 @@
+{
+    "date_issued": {
+        "total_occurrences": 6889,
+        "data_types": {
+            "list": 6889
+        },
+        "flags": []
+    },
+    "language": {
+        "total_occurrences": 6889,
+        "data_types": {
+            "list": 6889
+        },
+        "flags": [
+            "Invalid count",
+            "Invalid count",
+            "Invalid count"
+        ]
+    },
+    "thesis_title": {
+        "total_occurrences": 13778,
+        "data_types": {
+            "list": 13778
+        },
+        "flags": [],
+        "min_length": 13,
+        "max_length": 424,
+        "avg_length": 95.52953984613151
+    },
+    "faculty": {
+        "total_occurrences": 6889,
+        "data_types": {
+            "list": 6889
+        },
+        "flags": [
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count",
+            "Invalid count"
+        ]
+    },
+    "subject_tags": {
+        "total_occurrences": 6889,
+        "data_types": {
+            "list": 6889
+        },
+        "flags": [],
+        "min_length": 1,
+        "max_length": 44,
+        "avg_length": 6.115982000290318
+    },
+    "additional_tags": {
+        "total_occurrences": 6889,
+        "data_types": {
+            "list": 6889
+        },
+        "flags": [],
+        "min_length": 1,
+        "max_length": 37,
+        "avg_length": 3.61649005661199
+    },
+    "abstract": {
+        "total_occurrences": 6889,
+        "data_types": {
+            "list": 6889
+        },
+        "flags": [],
+        "min_length": 0,
+        "max_length": 8283,
+        "avg_length": 2085.679634199448
+    }
+}

@@ -102,3 +102,7 @@ Changes on 2024-11-15 06:33:38:
 - Added depricated_versions/output_DataValidation.json
 - Added depricated_versions/output_DataValidation_4.json
 - Added model_embedding/deberta_test.py
+Changes on 2024-11-15 14:33:17:
+- Modified ata_validation/json_dataset_field_metric.py
+- Modified project_journal.txt
+- Added data_validation/output_json_dataset_field_metrics.json

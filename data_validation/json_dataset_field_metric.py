@@ -72,7 +72,7 @@ def analyze_dataset(data: List[Dict]) -> Dict:
         if item.get('faculty'):
             faculty_count = len(item['faculty'])
             stats['faculty_distribution'][faculty_count] += 1
-            if faculty_count > 2:
+            if faculty_count != 2:
                 stats['anomalies'].append({
                     'id': entity_id,
                     'issue': f"Unusual number of faculties: {faculty_count}"

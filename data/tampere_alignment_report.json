@@ -1,0 +1,23 @@
+{
+  "raw_records_total": 66340,
+  "dropped_no_abstract": 19848,
+  "source_records_split_multi_abstract": 7296,
+  "entities_written": 53850,
+  "entities_missing_tags": 677,
+  "language_distribution": {
+    "fin": 37721,
+    "eng": 15997,
+    "swe": 81,
+    "rus": 39,
+    "fre": 7,
+    "null": 3,
+    "ger": 2
+  },
+  "degree_type_distribution": {
+    "master": 35645,
+    "bachelor": 9696,
+    "doctoral": 8132,
+    "other": 299,
+    "null": 78
+  }
+}

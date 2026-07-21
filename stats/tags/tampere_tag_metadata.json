@@ -1,0 +1,88 @@
+{
+  "entities_total": 53850,
+  "entities_with_tags": 53173,
+  "unique_tags_total": 68302,
+  "tag_occurrences_total": 255943,
+  "top_20_tags": [
+    [
+      "Tieto- ja sähkötekniikan kandidaattiohjelma - Bachelor's Programme in Computing and Electrical Engineering",
+      864
+    ],
+    [
+      "Tekniikan ja luonnontieteiden kandidaattiohjelma - Bachelor's Programme in Engineering and Natural Sciences",
+      706
+    ],
+    [
+      "Tiedotusoppi - Journalism and Mass Communication",
+      704
+    ],
+    [
+      "Hoitotiede - Nursing Science",
+      677
+    ],
+    [
+      "Rakennustekniikan DI-ohjelma - Master's Programme in Civil Engineering",
+      632
+    ],
+    [
+      "Tietotekniikan DI-ohjelma - Master's Programme in Information Technology",
+      608
+    ],
+    [
+      "Kasvatuksen ja yhteiskunnan tutkimuksen maisteriohjelma - Master´s Programme in Educational Studies",
+      598
+    ],
+    [
+      "Kasvatustiede - Education",
+      594
+    ],
+    [
+      "Sosiaalityö - Social Work",
+      592
+    ],
+    [
+      "Kauppatieteiden maisteriohjelma - Master's Programme in Business Studies",
+      588
+    ],
+    [
+      "varhaiskasvatus",
+      574
+    ],
+    [
+      "Kauppatieteiden kandidaattiohjelma - Bachelor's Programme in Business Studies",
+      542
+    ],
+    [
+      "Yhteiskuntatutkimuksen kandidaattiohjelma - Bachelor's Programme in Social Sciences",
+      522
+    ],
+    [
+      "Kasvatustiede, luokanopettajan koulutus - Class Teacher Education",
+      513
+    ],
+    [
+      "Teknisten tieteiden kandidaattiohjelma - Bachelor's Programme in Engineering Sciences",
+      499
+    ],
+    [
+      "Tietojenkäsittelyoppi - Computer Science",
+      492
+    ],
+    [
+      "Hallintotieteiden maisteriohjelma - Master's Programme in Administrative Studies",
+      480
+    ],
+    [
+      "Hallintotieteiden kandidaattiohjelma - Bachelor's Programme in Administrative Studies",
+      465
+    ],
+    [
+      "vuorovaikutus",
+      463
+    ],
+    [
+      "machine learning",
+      463
+    ]
+  ]
+}

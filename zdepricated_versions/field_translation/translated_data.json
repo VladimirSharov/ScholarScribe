@@ -1,0 +1,38 @@
+[
+    {
+        "dc.subject.other": [
+            "Plinius Secundus, Gaius",
+            "Naturalis historia"
+        ],
+        "dc.contributor.tiedekunta": [
+            "Humanistinen tiedekunta",
+            "Faculty of Humanities"
+        ],
+        "dc.subject.yso": [
+            "historia",
+            "latinankielinen kirjallisuus",
+            "maailmankuva",
+            "maailmankaikkeus",
+            "planeetat",
+            "tähdet",
+            "antiikki"
+        ],
+        "dc.subject.other_translated": [
+            "Pliny the Second, Gaius",
+            "Natural history"
+        ],
+        "dc.contributor.tiedekunta_translated": [
+            "Faculty of Humanities",
+            "Faculty of Humanities"
+        ],
+        "dc.subject.yso_translated": [
+            "history",
+            "Latin literature",
+            "world view",
+            "universe",
+            "the planets",
+            "the stars",
+            "antique"
+        ]
+    }
+]

@@ -1,0 +1,27 @@
+{
+  "evaluation_date": "2025-04-10T11:46:31.243965",
+  "model_name": "Meta-Llama-3.1-8B-Instruct.Q8_0",
+  "total_samples": 1766,
+  "metrics_summary": {
+    "combined_tags": {
+      "exact_match_average": 0.05068345240763271,
+      "perfect_matches_percent": 0.0,
+      "zero_matches_percent": 72.3669309173273
+    }
+  },
+  "distribution": {
+    "combined_exact_match": {
+      "0.0": 1278,
+      "0.1-0.2": 182,
+      "0.2-0.3": 120,
+      "0.3-0.4": 46,
+      "0.4-0.5": 11,
+      "0.5-0.6": 11,
+      "0.6-0.7": 2,
+      "0.7-0.8": 1,
+      "0.8-0.9": 0,
+      "0.9-1.0": 0,
+      "1.0": 0
+    }
+  }
+}

@@ -1,0 +1,1339 @@
+
+--- Analyzing Fine-tuned model at model_embedding/model_output_1n_20250228_131012/checkpoint-668 ---
+Layer: roberta.encoder.layer.0.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.092300
+  Weight variance: 0.013968
+  Weight min: -0.850438, max: 0.699679
+  Bias mean abs: 0.354147
+  Bias variance: 0.158500
+  Bias min: -0.669864, max: 0.720060
+
+Layer: roberta.encoder.layer.0.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.097399
+  Weight variance: 0.015024
+  Weight min: -0.809151, max: 0.851444
+  Bias mean abs: 0.000118
+  Bias variance: 0.000000
+  Bias min: -0.000768, max: 0.001323
+
+Layer: roberta.encoder.layer.0.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.028640
+  Weight variance: 0.001364
+  Weight min: -0.509898, max: 0.501588
+  Bias mean abs: 0.031494
+  Bias variance: 0.002659
+  Bias min: -0.261083, max: 0.328685
+
+Layer: roberta.encoder.layer.0.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.027019
+  Weight variance: 0.001341
+  Weight min: -0.999406, max: 0.999916
+  Bias mean abs: 0.029088
+  Bias variance: 0.001429
+  Bias min: -0.201307, max: 0.109803
+
+Layer: roberta.encoder.layer.0.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.050752
+  Weight variance: 0.004252
+  Weight min: -0.775566, max: 0.842288
+  Bias mean abs: 0.097996
+  Bias variance: 0.003365
+  Bias min: -0.633031, max: 0.250250
+
+Layer: roberta.encoder.layer.0.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.035281
+  Weight variance: 0.002171
+  Weight min: -1.001747, max: 1.004770
+  Bias mean abs: 0.032350
+  Bias variance: 0.002050
+  Bias min: -0.500504, max: 0.157009
+
+Layer: roberta.encoder.layer.1.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.070118
+  Weight variance: 0.008405
+  Weight min: -0.658058, max: 0.643511
+  Bias mean abs: 0.207441
+  Bias variance: 0.069449
+  Bias min: -0.584925, max: 0.571297
+
+Layer: roberta.encoder.layer.1.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.068989
+  Weight variance: 0.008166
+  Weight min: -0.723149, max: 0.746104
+  Bias mean abs: 0.001894
+  Bias variance: 0.000031
+  Bias min: -0.031830, max: 0.032829
+
+Layer: roberta.encoder.layer.1.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.028438
+  Weight variance: 0.001411
+  Weight min: -0.300348, max: 0.308311
+  Bias mean abs: 0.007023
+  Bias variance: 0.000484
+  Bias min: -0.313822, max: 0.207256
+
+Layer: roberta.encoder.layer.1.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.025320
+  Weight variance: 0.001162
+  Weight min: -0.783319, max: 0.968020
+  Bias mean abs: 0.047466
+  Bias variance: 0.004280
+  Bias min: -0.334790, max: 0.249579
+
+Layer: roberta.encoder.layer.1.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.050073
+  Weight variance: 0.004017
+  Weight min: -0.881623, max: 0.943044
+  Bias mean abs: 0.077846
+  Bias variance: 0.003061
+  Bias min: -0.651353, max: 0.058203
+
+Layer: roberta.encoder.layer.1.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.033399
+  Weight variance: 0.001998
+  Weight min: -0.999890, max: 1.999970
+  Bias mean abs: 0.031783
+  Bias variance: 0.001993
+  Bias min: -0.326971, max: 0.269498
+
+Layer: roberta.encoder.layer.2.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.056519
+  Weight variance: 0.005726
+  Weight min: -0.790376, max: 0.663736
+  Bias mean abs: 0.191804
+  Bias variance: 0.061483
+  Bias min: -0.551127, max: 0.530073
+
+Layer: roberta.encoder.layer.2.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.056421
+  Weight variance: 0.005700
+  Weight min: -0.777666, max: 0.741021
+  Bias mean abs: 0.001060
+  Bias variance: 0.000017
+  Bias min: -0.042115, max: 0.051141
+
+Layer: roberta.encoder.layer.2.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.029924
+  Weight variance: 0.001536
+  Weight min: -0.505869, max: 0.353501
+  Bias mean abs: 0.018443
+  Bias variance: 0.001951
+  Bias min: -0.265723, max: 0.496127
+
+Layer: roberta.encoder.layer.2.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.024385
+  Weight variance: 0.001166
+  Weight min: -0.607197, max: 0.633710
+  Bias mean abs: 0.048028
+  Bias variance: 0.004396
+  Bias min: -0.252414, max: 0.501784
+
+Layer: roberta.encoder.layer.2.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.046876
+  Weight variance: 0.003728
+  Weight min: -0.875803, max: 0.897724
+  Bias mean abs: 0.080755
+  Bias variance: 0.004956
+  Bias min: -0.870603, max: 0.057538
+
+Layer: roberta.encoder.layer.2.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.035727
+  Weight variance: 0.002400
+  Weight min: -0.910677, max: 1.999847
+  Bias mean abs: 0.053521
+  Bias variance: 0.005457
+  Bias min: -0.475656, max: 0.369740
+
+Layer: roberta.encoder.layer.3.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.050898
+  Weight variance: 0.004515
+  Weight min: -0.665117, max: 0.694209
+  Bias mean abs: 0.163839
+  Bias variance: 0.049964
+  Bias min: -0.527188, max: 0.532035
+
+Layer: roberta.encoder.layer.3.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.050775
+  Weight variance: 0.004564
+  Weight min: -0.733436, max: 0.707492
+  Bias mean abs: 0.000700
+  Bias variance: 0.000016
+  Bias min: -0.039900, max: 0.062850
+
+Layer: roberta.encoder.layer.3.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.035988
+  Weight variance: 0.002239
+  Weight min: -0.399863, max: 0.499614
+  Bias mean abs: 0.015965
+  Bias variance: 0.000914
+  Bias min: -0.271414, max: 0.186427
+
+Layer: roberta.encoder.layer.3.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.030347
+  Weight variance: 0.001948
+  Weight min: -0.557226, max: 0.603746
+  Bias mean abs: 0.047845
+  Bias variance: 0.004538
+  Bias min: -0.356383, max: 0.499449
+
+Layer: roberta.encoder.layer.3.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.048397
+  Weight variance: 0.004212
+  Weight min: -0.636096, max: 0.861868
+  Bias mean abs: 0.081813
+  Bias variance: 0.006611
+  Bias min: -0.891426, max: 0.258353
+
+Layer: roberta.encoder.layer.3.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.039869
+  Weight variance: 0.003088
+  Weight min: -0.996616, max: 1.999929
+  Bias mean abs: 0.057127
+  Bias variance: 0.006472
+  Bias min: -0.501938, max: 0.499962
+
+Layer: roberta.encoder.layer.4.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.054025
+  Weight variance: 0.005024
+  Weight min: -0.595998, max: 0.583368
+  Bias mean abs: 0.172655
+  Bias variance: 0.052612
+  Bias min: -0.514646, max: 0.522720
+
+Layer: roberta.encoder.layer.4.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.054618
+  Weight variance: 0.005239
+  Weight min: -0.832452, max: 0.866763
+  Bias mean abs: 0.000889
+  Bias variance: 0.000017
+  Bias min: -0.043176, max: 0.057117
+
+Layer: roberta.encoder.layer.4.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.037343
+  Weight variance: 0.002486
+  Weight min: -0.504923, max: 0.500041
+  Bias mean abs: 0.022034
+  Bias variance: 0.001333
+  Bias min: -0.246061, max: 0.257322
+
+Layer: roberta.encoder.layer.4.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.035620
+  Weight variance: 0.003355
+  Weight min: -0.542973, max: 0.558538
+  Bias mean abs: 0.053164
+  Bias variance: 0.006024
+  Bias min: -0.315863, max: 0.499066
+
+Layer: roberta.encoder.layer.4.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.050662
+  Weight variance: 0.004942
+  Weight min: -0.683891, max: 0.703139
+  Bias mean abs: 0.085590
+  Bias variance: 0.008845
+  Bias min: -0.890115, max: 0.057777
+
+Layer: roberta.encoder.layer.4.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.041219
+  Weight variance: 0.003526
+  Weight min: -0.804135, max: 1.999927
+  Bias mean abs: 0.058818
+  Bias variance: 0.006893
+  Bias min: -0.537088, max: 0.497036
+
+Layer: roberta.encoder.layer.5.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.048828
+  Weight variance: 0.004089
+  Weight min: -0.586965, max: 0.533689
+  Bias mean abs: 0.177797
+  Bias variance: 0.054053
+  Bias min: -0.512118, max: 0.515125
+
+Layer: roberta.encoder.layer.5.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.048948
+  Weight variance: 0.004304
+  Weight min: -0.851531, max: 0.936865
+  Bias mean abs: 0.000933
+  Bias variance: 0.000027
+  Bias min: -0.060568, max: 0.085698
+
+Layer: roberta.encoder.layer.5.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.039855
+  Weight variance: 0.002938
+  Weight min: -0.535759, max: 0.443077
+  Bias mean abs: 0.025681
+  Bias variance: 0.001932
+  Bias min: -0.315316, max: 0.330418
+
+Layer: roberta.encoder.layer.5.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.037214
+  Weight variance: 0.003702
+  Weight min: -0.552317, max: 0.682720
+  Bias mean abs: 0.055842
+  Bias variance: 0.007230
+  Bias min: -0.490170, max: 0.497737
+
+Layer: roberta.encoder.layer.5.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.048681
+  Weight variance: 0.004615
+  Weight min: -0.629286, max: 0.746077
+  Bias mean abs: 0.091271
+  Bias variance: 0.012345
+  Bias min: -0.595375, max: 0.056762
+
+Layer: roberta.encoder.layer.5.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.038438
+  Weight variance: 0.003239
+  Weight min: -0.995884, max: 1.999447
+  Bias mean abs: 0.059786
+  Bias variance: 0.006921
+  Bias min: -0.429742, max: 0.543194
+
+Layer: roberta.encoder.layer.6.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.054465
+  Weight variance: 0.005009
+  Weight min: -0.597851, max: 0.626820
+  Bias mean abs: 0.171450
+  Bias variance: 0.047144
+  Bias min: -0.532236, max: 0.506939
+
+Layer: roberta.encoder.layer.6.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.054521
+  Weight variance: 0.005172
+  Weight min: -0.819764, max: 0.774769
+  Bias mean abs: 0.001646
+  Bias variance: 0.000076
+  Bias min: -0.071461, max: 0.125019
+
+Layer: roberta.encoder.layer.6.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.036409
+  Weight variance: 0.002474
+  Weight min: -0.515838, max: 0.431471
+  Bias mean abs: 0.028066
+  Bias variance: 0.002222
+  Bias min: -0.407204, max: 0.356970
+
+Layer: roberta.encoder.layer.6.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.034764
+  Weight variance: 0.003360
+  Weight min: -0.522185, max: 0.536124
+  Bias mean abs: 0.062705
+  Bias variance: 0.008465
+  Bias min: -0.404246, max: 0.484560
+
+Layer: roberta.encoder.layer.6.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.047615
+  Weight variance: 0.004357
+  Weight min: -0.833020, max: 1.003174
+  Bias mean abs: 0.090768
+  Bias variance: 0.012522
+  Bias min: -0.620721, max: 0.310564
+
+Layer: roberta.encoder.layer.6.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.037782
+  Weight variance: 0.003186
+  Weight min: -1.999228, max: 1.999907
+  Bias mean abs: 0.065754
+  Bias variance: 0.007954
+  Bias min: -0.499347, max: 0.517231
+
+Layer: roberta.encoder.layer.7.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.051371
+  Weight variance: 0.004583
+  Weight min: -0.514840, max: 0.571069
+  Bias mean abs: 0.200865
+  Bias variance: 0.061011
+  Bias min: -0.517759, max: 0.533232
+
+Layer: roberta.encoder.layer.7.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.051356
+  Weight variance: 0.004726
+  Weight min: -0.729423, max: 0.687434
+  Bias mean abs: 0.002265
+  Bias variance: 0.000117
+  Bias min: -0.129369, max: 0.130164
+
+Layer: roberta.encoder.layer.7.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.036454
+  Weight variance: 0.002573
+  Weight min: -0.499776, max: 0.475632
+  Bias mean abs: 0.011588
+  Bias variance: 0.000295
+  Bias min: -0.094593, max: 0.120416
+
+Layer: roberta.encoder.layer.7.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.034079
+  Weight variance: 0.002879
+  Weight min: -0.857704, max: 0.924942
+  Bias mean abs: 0.043264
+  Bias variance: 0.004642
+  Bias min: -0.500330, max: 0.495088
+
+Layer: roberta.encoder.layer.7.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.046305
+  Weight variance: 0.003948
+  Weight min: -0.733613, max: 0.999941
+  Bias mean abs: 0.108743
+  Bias variance: 0.015468
+  Bias min: -0.685719, max: 0.449309
+
+Layer: roberta.encoder.layer.7.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.037117
+  Weight variance: 0.002987
+  Weight min: -1.057723, max: 1.392574
+  Bias mean abs: 0.061743
+  Bias variance: 0.006516
+  Bias min: -0.283936, max: 0.500582
+
+Layer: roberta.encoder.layer.8.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.053140
+  Weight variance: 0.004834
+  Weight min: -0.581278, max: 0.562651
+  Bias mean abs: 0.163114
+  Bias variance: 0.043150
+  Bias min: -0.504676, max: 0.512340
+
+Layer: roberta.encoder.layer.8.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.052733
+  Weight variance: 0.004915
+  Weight min: -0.717531, max: 0.752003
+  Bias mean abs: 0.003447
+  Bias variance: 0.000359
+  Bias min: -0.334116, max: 0.130292
+
+Layer: roberta.encoder.layer.8.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.036805
+  Weight variance: 0.002600
+  Weight min: -0.492925, max: 0.565536
+  Bias mean abs: 0.012804
+  Bias variance: 0.000399
+  Bias min: -0.164482, max: 0.138705
+
+Layer: roberta.encoder.layer.8.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.034368
+  Weight variance: 0.003330
+  Weight min: -0.536105, max: 0.591597
+  Bias mean abs: 0.057052
+  Bias variance: 0.006838
+  Bias min: -0.504373, max: 0.460871
+
+Layer: roberta.encoder.layer.8.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.045212
+  Weight variance: 0.003778
+  Weight min: -0.684950, max: 0.917217
+  Bias mean abs: 0.105727
+  Bias variance: 0.016263
+  Bias min: -0.561558, max: 0.502200
+
+Layer: roberta.encoder.layer.8.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.038135
+  Weight variance: 0.003042
+  Weight min: -0.745093, max: 1.029258
+  Bias mean abs: 0.062386
+  Bias variance: 0.006652
+  Bias min: -0.259108, max: 0.500451
+
+Layer: roberta.encoder.layer.9.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.055136
+  Weight variance: 0.005103
+  Weight min: -0.629607, max: 0.550702
+  Bias mean abs: 0.172263
+  Bias variance: 0.047125
+  Bias min: -0.510181, max: 0.503959
+
+Layer: roberta.encoder.layer.9.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.053994
+  Weight variance: 0.005060
+  Weight min: -0.631358, max: 0.705454
+  Bias mean abs: 0.003535
+  Bias variance: 0.000361
+  Bias min: -0.296388, max: 0.190468
+
+Layer: roberta.encoder.layer.9.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.033409
+  Weight variance: 0.002065
+  Weight min: -0.372638, max: 0.472968
+  Bias mean abs: 0.016965
+  Bias variance: 0.001049
+  Bias min: -0.334757, max: 0.249774
+
+Layer: roberta.encoder.layer.9.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.031008
+  Weight variance: 0.002045
+  Weight min: -0.804116, max: 0.999486
+  Bias mean abs: 0.072929
+  Bias variance: 0.009547
+  Bias min: -0.415715, max: 0.311787
+
+Layer: roberta.encoder.layer.9.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.042249
+  Weight variance: 0.003168
+  Weight min: -0.830900, max: 0.643460
+  Bias mean abs: 0.096505
+  Bias variance: 0.012921
+  Bias min: -0.575115, max: 0.325379
+
+Layer: roberta.encoder.layer.9.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.038354
+  Weight variance: 0.002885
+  Weight min: -0.976637, max: 0.999975
+  Bias mean abs: 0.058612
+  Bias variance: 0.005840
+  Bias min: -0.254213, max: 0.500680
+
+Layer: roberta.encoder.layer.10.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.055463
+  Weight variance: 0.004947
+  Weight min: -0.531226, max: 0.536746
+  Bias mean abs: 0.188984
+  Bias variance: 0.057237
+  Bias min: -0.522686, max: 0.518862
+
+Layer: roberta.encoder.layer.10.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.055097
+  Weight variance: 0.004958
+  Weight min: -0.630399, max: 0.602188
+  Bias mean abs: 0.011906
+  Bias variance: 0.001188
+  Bias min: -0.408918, max: 0.249926
+
+Layer: roberta.encoder.layer.10.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.030531
+  Weight variance: 0.001632
+  Weight min: -0.460476, max: 0.369955
+  Bias mean abs: 0.006789
+  Bias variance: 0.000284
+  Bias min: -0.203631, max: 0.159217
+
+Layer: roberta.encoder.layer.10.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.025780
+  Weight variance: 0.001232
+  Weight min: -0.887558, max: 0.976884
+  Bias mean abs: 0.068767
+  Bias variance: 0.007587
+  Bias min: -0.279304, max: 0.258795
+
+Layer: roberta.encoder.layer.10.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.036468
+  Weight variance: 0.002146
+  Weight min: -0.529718, max: 0.529724
+  Bias mean abs: 0.069146
+  Bias variance: 0.005919
+  Bias min: -0.500228, max: 0.266316
+
+Layer: roberta.encoder.layer.10.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.033663
+  Weight variance: 0.002202
+  Weight min: -0.999125, max: 1.004779
+  Bias mean abs: 0.046777
+  Bias variance: 0.003696
+  Bias min: -0.186221, max: 0.499951
+
+Layer: roberta.encoder.layer.11.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.057109
+  Weight variance: 0.005301
+  Weight min: -0.612837, max: 0.582038
+  Bias mean abs: 0.169507
+  Bias variance: 0.045136
+  Bias min: -0.512671, max: 0.505277
+
+Layer: roberta.encoder.layer.11.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.060263
+  Weight variance: 0.005928
+  Weight min: -0.584405, max: 0.550584
+  Bias mean abs: 0.019788
+  Bias variance: 0.003468
+  Bias min: -0.499489, max: 0.470317
+
+Layer: roberta.encoder.layer.11.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.035743
+  Weight variance: 0.002232
+  Weight min: -0.394238, max: 0.384256
+  Bias mean abs: 0.006004
+  Bias variance: 0.000084
+  Bias min: -0.080565, max: 0.099742
+
+Layer: roberta.encoder.layer.11.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.027205
+  Weight variance: 0.001369
+  Weight min: -1.014369, max: 1.014518
+  Bias mean abs: 0.037776
+  Bias variance: 0.002289
+  Bias min: -0.299622, max: 0.206116
+
+Layer: roberta.encoder.layer.11.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.036013
+  Weight variance: 0.002093
+  Weight min: -0.651083, max: 0.575242
+  Bias mean abs: 0.057068
+  Bias variance: 0.002150
+  Bias min: -0.453119, max: 0.261641
+
+Layer: roberta.encoder.layer.11.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.025740
+  Weight variance: 0.001400
+  Weight min: -0.999975, max: 2.000519
+  Bias mean abs: 0.042659
+  Bias variance: 0.003961
+  Bias min: -0.247084, max: 0.999468
+
+Layer: classifier.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.015968
+  Weight variance: 0.000401
+  Weight min: -0.094371, max: 0.091093
+  Bias mean abs: 0.000765
+  Bias variance: 0.000001
+  Bias min: -0.002097, max: 0.001893
+
+Layer: classifier.out_proj
+  Weight shape: torch.Size([16910, 768])
+  Weight mean abs: 0.015977
+  Weight variance: 0.000401
+  Weight min: -0.104067, max: 0.105052
+  Bias mean abs: 0.000853
+  Bias variance: 0.000000
+  Bias min: -0.002688, max: 0.002418
+
+Found base model from config: xlm-roberta-base
+
+Trying to load base model: xlm-roberta-base
+
+--- Analyzing Base pre-trained model at xlm-roberta-base ---
+Layer: roberta.encoder.layer.0.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.092304
+  Weight variance: 0.013969
+  Weight min: -0.850586, max: 0.699707
+  Bias mean abs: 0.354139
+  Bias variance: 0.158495
+  Bias min: -0.669922, max: 0.720215
+
+Layer: roberta.encoder.layer.0.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.097404
+  Weight variance: 0.015025
+  Weight min: -0.809570, max: 0.851562
+  Bias mean abs: 0.000100
+  Bias variance: 0.000000
+  Bias min: -0.000823, max: 0.001226
+
+Layer: roberta.encoder.layer.0.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.028641
+  Weight variance: 0.001364
+  Weight min: -0.510254, max: 0.501465
+  Bias mean abs: 0.031497
+  Bias variance: 0.002660
+  Bias min: -0.261230, max: 0.328857
+
+Layer: roberta.encoder.layer.0.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.027020
+  Weight variance: 0.001341
+  Weight min: -0.999512, max: 1.000000
+  Bias mean abs: 0.029080
+  Bias variance: 0.001429
+  Bias min: -0.201416, max: 0.110046
+
+Layer: roberta.encoder.layer.0.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.050754
+  Weight variance: 0.004252
+  Weight min: -0.775391, max: 0.842285
+  Bias mean abs: 0.097993
+  Bias variance: 0.003365
+  Bias min: -0.633301, max: 0.250244
+
+Layer: roberta.encoder.layer.0.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.035282
+  Weight variance: 0.002171
+  Weight min: -1.001953, max: 1.004883
+  Bias mean abs: 0.032331
+  Bias variance: 0.002048
+  Bias min: -0.500488, max: 0.156860
+
+Layer: roberta.encoder.layer.1.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.070121
+  Weight variance: 0.008405
+  Weight min: -0.658203, max: 0.643555
+  Bias mean abs: 0.207422
+  Bias variance: 0.069437
+  Bias min: -0.584961, max: 0.571289
+
+Layer: roberta.encoder.layer.1.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.068992
+  Weight variance: 0.008167
+  Weight min: -0.723145, max: 0.746094
+  Bias mean abs: 0.001875
+  Bias variance: 0.000031
+  Bias min: -0.031738, max: 0.032745
+
+Layer: roberta.encoder.layer.1.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.028439
+  Weight variance: 0.001411
+  Weight min: -0.300293, max: 0.308594
+  Bias mean abs: 0.007022
+  Bias variance: 0.000484
+  Bias min: -0.313721, max: 0.206909
+
+Layer: roberta.encoder.layer.1.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.025321
+  Weight variance: 0.001163
+  Weight min: -0.783691, max: 0.968262
+  Bias mean abs: 0.047469
+  Bias variance: 0.004279
+  Bias min: -0.334717, max: 0.249878
+
+Layer: roberta.encoder.layer.1.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.050075
+  Weight variance: 0.004018
+  Weight min: -0.881836, max: 0.942871
+  Bias mean abs: 0.077844
+  Bias variance: 0.003060
+  Bias min: -0.651367, max: 0.058289
+
+Layer: roberta.encoder.layer.1.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.033401
+  Weight variance: 0.001998
+  Weight min: -1.000000, max: 2.000000
+  Bias mean abs: 0.031774
+  Bias variance: 0.001993
+  Bias min: -0.326904, max: 0.269287
+
+Layer: roberta.encoder.layer.2.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.056521
+  Weight variance: 0.005726
+  Weight min: -0.790039, max: 0.663574
+  Bias mean abs: 0.191844
+  Bias variance: 0.061494
+  Bias min: -0.550781, max: 0.530273
+
+Layer: roberta.encoder.layer.2.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.056422
+  Weight variance: 0.005700
+  Weight min: -0.777344, max: 0.740723
+  Bias mean abs: 0.001053
+  Bias variance: 0.000017
+  Bias min: -0.042114, max: 0.051361
+
+Layer: roberta.encoder.layer.2.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.029924
+  Weight variance: 0.001536
+  Weight min: -0.505859, max: 0.353516
+  Bias mean abs: 0.018437
+  Bias variance: 0.001948
+  Bias min: -0.265625, max: 0.495850
+
+Layer: roberta.encoder.layer.2.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.024385
+  Weight variance: 0.001166
+  Weight min: -0.607422, max: 0.633789
+  Bias mean abs: 0.048054
+  Bias variance: 0.004400
+  Bias min: -0.252441, max: 0.501953
+
+Layer: roberta.encoder.layer.2.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.046878
+  Weight variance: 0.003728
+  Weight min: -0.875977, max: 0.897949
+  Bias mean abs: 0.080754
+  Bias variance: 0.004956
+  Bias min: -0.870117, max: 0.057220
+
+Layer: roberta.encoder.layer.2.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.035728
+  Weight variance: 0.002401
+  Weight min: -0.910645, max: 2.000000
+  Bias mean abs: 0.053535
+  Bias variance: 0.005458
+  Bias min: -0.475342, max: 0.369873
+
+Layer: roberta.encoder.layer.3.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.050900
+  Weight variance: 0.004515
+  Weight min: -0.665039, max: 0.694336
+  Bias mean abs: 0.163812
+  Bias variance: 0.049953
+  Bias min: -0.527344, max: 0.532227
+
+Layer: roberta.encoder.layer.3.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.050778
+  Weight variance: 0.004565
+  Weight min: -0.733398, max: 0.707520
+  Bias mean abs: 0.000697
+  Bias variance: 0.000016
+  Bias min: -0.039948, max: 0.062927
+
+Layer: roberta.encoder.layer.3.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.035990
+  Weight variance: 0.002239
+  Weight min: -0.400146, max: 0.499756
+  Bias mean abs: 0.015963
+  Bias variance: 0.000914
+  Bias min: -0.271240, max: 0.186523
+
+Layer: roberta.encoder.layer.3.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.030348
+  Weight variance: 0.001948
+  Weight min: -0.557129, max: 0.603516
+  Bias mean abs: 0.047834
+  Bias variance: 0.004536
+  Bias min: -0.356201, max: 0.499512
+
+Layer: roberta.encoder.layer.3.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.048400
+  Weight variance: 0.004212
+  Weight min: -0.636230, max: 0.861816
+  Bias mean abs: 0.081818
+  Bias variance: 0.006610
+  Bias min: -0.891113, max: 0.258545
+
+Layer: roberta.encoder.layer.3.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.039870
+  Weight variance: 0.003089
+  Weight min: -0.996582, max: 2.000000
+  Bias mean abs: 0.057130
+  Bias variance: 0.006474
+  Bias min: -0.501953, max: 0.500000
+
+Layer: roberta.encoder.layer.4.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.054027
+  Weight variance: 0.005025
+  Weight min: -0.596191, max: 0.583496
+  Bias mean abs: 0.172655
+  Bias variance: 0.052616
+  Bias min: -0.514648, max: 0.522461
+
+Layer: roberta.encoder.layer.4.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.054620
+  Weight variance: 0.005240
+  Weight min: -0.832520, max: 0.866699
+  Bias mean abs: 0.000876
+  Bias variance: 0.000017
+  Bias min: -0.043060, max: 0.057098
+
+Layer: roberta.encoder.layer.4.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.037344
+  Weight variance: 0.002486
+  Weight min: -0.504883, max: 0.500000
+  Bias mean abs: 0.022028
+  Bias variance: 0.001332
+  Bias min: -0.246094, max: 0.257324
+
+Layer: roberta.encoder.layer.4.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.035621
+  Weight variance: 0.003356
+  Weight min: -0.542969, max: 0.558594
+  Bias mean abs: 0.053151
+  Bias variance: 0.006022
+  Bias min: -0.315918, max: 0.499023
+
+Layer: roberta.encoder.layer.4.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.050664
+  Weight variance: 0.004942
+  Weight min: -0.684570, max: 0.703125
+  Bias mean abs: 0.085585
+  Bias variance: 0.008843
+  Bias min: -0.890137, max: 0.057678
+
+Layer: roberta.encoder.layer.4.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.041220
+  Weight variance: 0.003527
+  Weight min: -0.804199, max: 2.000000
+  Bias mean abs: 0.058819
+  Bias variance: 0.006894
+  Bias min: -0.537109, max: 0.496826
+
+Layer: roberta.encoder.layer.5.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.048830
+  Weight variance: 0.004090
+  Weight min: -0.586914, max: 0.533691
+  Bias mean abs: 0.177809
+  Bias variance: 0.054058
+  Bias min: -0.512207, max: 0.515137
+
+Layer: roberta.encoder.layer.5.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.048950
+  Weight variance: 0.004304
+  Weight min: -0.851562, max: 0.937012
+  Bias mean abs: 0.000925
+  Bias variance: 0.000027
+  Bias min: -0.060425, max: 0.085876
+
+Layer: roberta.encoder.layer.5.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.039857
+  Weight variance: 0.002938
+  Weight min: -0.535645, max: 0.442871
+  Bias mean abs: 0.025686
+  Bias variance: 0.001931
+  Bias min: -0.315186, max: 0.330078
+
+Layer: roberta.encoder.layer.5.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.037215
+  Weight variance: 0.003703
+  Weight min: -0.552246, max: 0.682617
+  Bias mean abs: 0.055826
+  Bias variance: 0.007225
+  Bias min: -0.490479, max: 0.497559
+
+Layer: roberta.encoder.layer.5.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.048684
+  Weight variance: 0.004615
+  Weight min: -0.629395, max: 0.746094
+  Bias mean abs: 0.091275
+  Bias variance: 0.012344
+  Bias min: -0.595703, max: 0.056854
+
+Layer: roberta.encoder.layer.5.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.038439
+  Weight variance: 0.003240
+  Weight min: -0.996094, max: 2.000000
+  Bias mean abs: 0.059797
+  Bias variance: 0.006922
+  Bias min: -0.429932, max: 0.542969
+
+Layer: roberta.encoder.layer.6.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.054468
+  Weight variance: 0.005010
+  Weight min: -0.597656, max: 0.626953
+  Bias mean abs: 0.171462
+  Bias variance: 0.047151
+  Bias min: -0.532227, max: 0.506836
+
+Layer: roberta.encoder.layer.6.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.054523
+  Weight variance: 0.005172
+  Weight min: -0.819824, max: 0.774902
+  Bias mean abs: 0.001634
+  Bias variance: 0.000076
+  Bias min: -0.071594, max: 0.125000
+
+Layer: roberta.encoder.layer.6.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.036410
+  Weight variance: 0.002474
+  Weight min: -0.515625, max: 0.431396
+  Bias mean abs: 0.028085
+  Bias variance: 0.002224
+  Bias min: -0.406982, max: 0.356934
+
+Layer: roberta.encoder.layer.6.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.034765
+  Weight variance: 0.003360
+  Weight min: -0.521973, max: 0.536133
+  Bias mean abs: 0.062688
+  Bias variance: 0.008463
+  Bias min: -0.404297, max: 0.484375
+
+Layer: roberta.encoder.layer.6.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.047618
+  Weight variance: 0.004357
+  Weight min: -0.833008, max: 1.002930
+  Bias mean abs: 0.090766
+  Bias variance: 0.012520
+  Bias min: -0.620605, max: 0.310303
+
+Layer: roberta.encoder.layer.6.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.037783
+  Weight variance: 0.003186
+  Weight min: -2.000000, max: 2.000000
+  Bias mean abs: 0.065765
+  Bias variance: 0.007957
+  Bias min: -0.499268, max: 0.517090
+
+Layer: roberta.encoder.layer.7.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.051373
+  Weight variance: 0.004583
+  Weight min: -0.515137, max: 0.571289
+  Bias mean abs: 0.200879
+  Bias variance: 0.061022
+  Bias min: -0.518066, max: 0.533203
+
+Layer: roberta.encoder.layer.7.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.051358
+  Weight variance: 0.004727
+  Weight min: -0.729492, max: 0.687500
+  Bias mean abs: 0.002260
+  Bias variance: 0.000117
+  Bias min: -0.129395, max: 0.130249
+
+Layer: roberta.encoder.layer.7.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.036455
+  Weight variance: 0.002573
+  Weight min: -0.500000, max: 0.475586
+  Bias mean abs: 0.011559
+  Bias variance: 0.000294
+  Bias min: -0.093872, max: 0.120483
+
+Layer: roberta.encoder.layer.7.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.034080
+  Weight variance: 0.002880
+  Weight min: -0.857910, max: 0.924805
+  Bias mean abs: 0.043260
+  Bias variance: 0.004640
+  Bias min: -0.500488, max: 0.494873
+
+Layer: roberta.encoder.layer.7.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.046308
+  Weight variance: 0.003948
+  Weight min: -0.733887, max: 1.000000
+  Bias mean abs: 0.108747
+  Bias variance: 0.015465
+  Bias min: -0.685547, max: 0.449463
+
+Layer: roberta.encoder.layer.7.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.037118
+  Weight variance: 0.002987
+  Weight min: -1.057617, max: 1.392578
+  Bias mean abs: 0.061756
+  Bias variance: 0.006516
+  Bias min: -0.283936, max: 0.500000
+
+Layer: roberta.encoder.layer.8.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.053144
+  Weight variance: 0.004835
+  Weight min: -0.581543, max: 0.562500
+  Bias mean abs: 0.163137
+  Bias variance: 0.043161
+  Bias min: -0.504395, max: 0.512695
+
+Layer: roberta.encoder.layer.8.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.052736
+  Weight variance: 0.004915
+  Weight min: -0.717773, max: 0.751953
+  Bias mean abs: 0.003435
+  Bias variance: 0.000360
+  Bias min: -0.334229, max: 0.130249
+
+Layer: roberta.encoder.layer.8.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.036806
+  Weight variance: 0.002600
+  Weight min: -0.492676, max: 0.565430
+  Bias mean abs: 0.012791
+  Bias variance: 0.000398
+  Bias min: -0.164185, max: 0.138794
+
+Layer: roberta.encoder.layer.8.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.034370
+  Weight variance: 0.003331
+  Weight min: -0.536133, max: 0.591309
+  Bias mean abs: 0.057054
+  Bias variance: 0.006839
+  Bias min: -0.504883, max: 0.460693
+
+Layer: roberta.encoder.layer.8.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.045214
+  Weight variance: 0.003779
+  Weight min: -0.685059, max: 0.916992
+  Bias mean abs: 0.105727
+  Bias variance: 0.016261
+  Bias min: -0.561523, max: 0.501953
+
+Layer: roberta.encoder.layer.8.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.038136
+  Weight variance: 0.003042
+  Weight min: -0.745117, max: 1.029297
+  Bias mean abs: 0.062377
+  Bias variance: 0.006652
+  Bias min: -0.259277, max: 0.500488
+
+Layer: roberta.encoder.layer.9.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.055139
+  Weight variance: 0.005103
+  Weight min: -0.629883, max: 0.550781
+  Bias mean abs: 0.172260
+  Bias variance: 0.047126
+  Bias min: -0.510254, max: 0.503906
+
+Layer: roberta.encoder.layer.9.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.053997
+  Weight variance: 0.005061
+  Weight min: -0.631348, max: 0.705566
+  Bias mean abs: 0.003518
+  Bias variance: 0.000361
+  Bias min: -0.296631, max: 0.190430
+
+Layer: roberta.encoder.layer.9.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.033410
+  Weight variance: 0.002065
+  Weight min: -0.372559, max: 0.472900
+  Bias mean abs: 0.016946
+  Bias variance: 0.001048
+  Bias min: -0.334473, max: 0.249878
+
+Layer: roberta.encoder.layer.9.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.031009
+  Weight variance: 0.002046
+  Weight min: -0.804199, max: 0.999512
+  Bias mean abs: 0.072927
+  Bias variance: 0.009545
+  Bias min: -0.416016, max: 0.311523
+
+Layer: roberta.encoder.layer.9.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.042253
+  Weight variance: 0.003168
+  Weight min: -0.830566, max: 0.643555
+  Bias mean abs: 0.096520
+  Bias variance: 0.012923
+  Bias min: -0.574707, max: 0.325439
+
+Layer: roberta.encoder.layer.9.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.038355
+  Weight variance: 0.002885
+  Weight min: -0.976074, max: 1.000000
+  Bias mean abs: 0.058638
+  Bias variance: 0.005844
+  Bias min: -0.254395, max: 0.500000
+
+Layer: roberta.encoder.layer.10.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.055467
+  Weight variance: 0.004948
+  Weight min: -0.531250, max: 0.536621
+  Bias mean abs: 0.189006
+  Bias variance: 0.057250
+  Bias min: -0.522461, max: 0.518555
+
+Layer: roberta.encoder.layer.10.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.055100
+  Weight variance: 0.004959
+  Weight min: -0.630371, max: 0.602051
+  Bias mean abs: 0.011876
+  Bias variance: 0.001188
+  Bias min: -0.408691, max: 0.250000
+
+Layer: roberta.encoder.layer.10.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.030531
+  Weight variance: 0.001632
+  Weight min: -0.460205, max: 0.369873
+  Bias mean abs: 0.006783
+  Bias variance: 0.000284
+  Bias min: -0.203491, max: 0.159790
+
+Layer: roberta.encoder.layer.10.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.025780
+  Weight variance: 0.001232
+  Weight min: -0.887695, max: 0.976562
+  Bias mean abs: 0.068776
+  Bias variance: 0.007588
+  Bias min: -0.279297, max: 0.258545
+
+Layer: roberta.encoder.layer.10.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.036470
+  Weight variance: 0.002146
+  Weight min: -0.529785, max: 0.529785
+  Bias mean abs: 0.069150
+  Bias variance: 0.005920
+  Bias min: -0.500000, max: 0.266602
+
+Layer: roberta.encoder.layer.10.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.033664
+  Weight variance: 0.002203
+  Weight min: -0.999023, max: 1.004883
+  Bias mean abs: 0.046779
+  Bias variance: 0.003698
+  Bias min: -0.186157, max: 0.500000
+
+Layer: roberta.encoder.layer.11.attention.self.query
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.057106
+  Weight variance: 0.005300
+  Weight min: -0.612793, max: 0.582031
+  Bias mean abs: 0.169597
+  Bias variance: 0.045179
+  Bias min: -0.512695, max: 0.505371
+
+Layer: roberta.encoder.layer.11.attention.self.key
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.060268
+  Weight variance: 0.005929
+  Weight min: -0.584473, max: 0.550293
+  Bias mean abs: 0.019590
+  Bias variance: 0.003462
+  Bias min: -0.500000, max: 0.470703
+
+Layer: roberta.encoder.layer.11.attention.self.value
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.035740
+  Weight variance: 0.002232
+  Weight min: -0.393799, max: 0.384277
+  Bias mean abs: 0.005994
+  Bias variance: 0.000083
+  Bias min: -0.080322, max: 0.099731
+
+Layer: roberta.encoder.layer.11.attention.output.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.027202
+  Weight variance: 0.001369
+  Weight min: -1.014648, max: 1.014648
+  Bias mean abs: 0.037781
+  Bias variance: 0.002288
+  Bias min: -0.299561, max: 0.206055
+
+Layer: roberta.encoder.layer.11.intermediate.dense
+  Weight shape: torch.Size([3072, 768])
+  Weight mean abs: 0.036013
+  Weight variance: 0.002093
+  Weight min: -0.651367, max: 0.574707
+  Bias mean abs: 0.057043
+  Bias variance: 0.002145
+  Bias min: -0.453369, max: 0.261719
+
+Layer: roberta.encoder.layer.11.output.dense
+  Weight shape: torch.Size([768, 3072])
+  Weight mean abs: 0.025738
+  Weight variance: 0.001401
+  Weight min: -1.000000, max: 2.000000
+  Bias mean abs: 0.042629
+  Bias variance: 0.003959
+  Bias min: -0.246948, max: 1.000000
+
+Layer: classifier.dense
+  Weight shape: torch.Size([768, 768])
+  Weight mean abs: 0.015964
+  Weight variance: 0.000401
+  Weight min: -0.101295, max: 0.095198
+  Bias mean abs: 0.000000
+  Bias variance: 0.000000
+  Bias min: 0.000000, max: 0.000000
+
+Layer: classifier.out_proj
+  Weight shape: torch.Size([2, 768])
+  Weight mean abs: 0.016183
+  Weight variance: 0.000407
+  Weight min: -0.066382, max: 0.067551
+  Bias mean abs: 0.000000
+  Bias variance: 0.000000
+  Bias min: 0.000000, max: 0.000000
+

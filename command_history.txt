@@ -1,0 +1,222 @@
+    1  exit
+    2  mamba
+    3  wget https://github.com/conda-forge/miniforge/releases/download/24.9.2-0/Mambaforge-24.9.2-0-Linux-x86_64.sh
+    4  chmod +x Mambaforge-24.9.2-0-Linux-x86_64.sh 
+    5  ./Mambaforge-24.9.2-0-Linux-x86_64.sh 
+    6  mamba install torch
+    7  mamba install torch
+    8  nvidia-smi
+    9  conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
+   10  mamba install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
+   11  mamba install os
+   12  mamba install datasets evaluate wandb nltk
+   13  mamba install transformers
+   14  python 
+   15  python model_training_GCV.py
+   16  mamba install torch wandb numpy pandas datasets transformers scikit-learn
+   17  python model_training_GCV.py
+   18  mamba install scikit-learn
+   19  python model_training_GCV.py
+   20  print(torch.cuda.is_available())
+   21  mamba list
+   22  mamba install accelerate
+   23  python model_training_GCV.py
+   24  mamba uninstall accelerate --all
+   25  mamba uninstall accelerate
+   26  python model_training_GCV.py
+   27  mamba install accelerate==1.0.0
+   28  python model_training_GCV.py
+   29  mamba uninstall accelerate
+   30  python model_training_GCV.py
+   31  mamba search accelerate
+   32  mamba install accelerate==0.34.2
+   33  python model_training_GCV.py
+   34  mamba uninstall accelerate
+   35  mamba install accelerate==0.26.0
+   36  pip freeze > requirements.txt
+   37  python model_training_GCV.py
+   38  mamba upgrade accelerate
+   39  mamba update transformers
+   40  transfomers --version
+   41  mamba transformers --version
+   42  CUDA_LAUNCH_BLOCKING=1 python model_training_GCV.py
+   43  nvidia-smi
+   44  ps aux | grep python
+   45  kill -9 3933593
+   46  python model_training_GCV.py
+   47  htop
+   48  python model_training_default_test.py 
+   49  mamba install sentencepiece
+   50  python model_training_default_test.py 
+   51  exit
+   52  ps aux | grep python
+   53  kill -9 3936638
+   54  nvidia-smi
+   55  exit
+   56  mamba install llama-cpp-python
+   57  python llama_install.py 
+   58  python llama-test.py
+   59  mamba install llama-cpp
+   60  mamba install llama.cpp
+   61  python llama-test.py
+   62  mamba list
+   63  mamba list | grep llama-cpp
+   64  python -c "import llama_cpp; print(llama_cpp.__version__)"
+   65  python llama-test.py
+   66  ls llama_model/Hermes-3-Llama-3.1-8B.Q4_K_M.gguf
+   67  ls notiwww
+   68  python llama-test.py
+   69  sha256sum llama_model/Hermes-3-Llama-3.1-8B.Q4_K_M.gguf
+   70  python llama-test_a2.py
+   71  python llama_test_a2.py
+   72  test
+   73  python model_training_GCV.py
+   74  mamba install bitsandbytes
+   75  mamba install flash_attn
+   76  mamba install protobuf
+   77  python llama_test_a2.py 
+   78  python llama_test_a3.py 
+   79  python llama_test_a4.py 
+   80  mamba --version
+   81  llama-bench main
+   82  main
+   83  main -m llama_model/Hermes-3-Llama-3.1-8B.Q4_K_M.gguf -p "You are a tree wizard" -cnv
+   84  ma -p "You are a wizard"
+   85  ls -a llama_model
+   86  ls -l -a llama_model
+   87  cd llama_model/
+   88  wget https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-8B-GGUF/resolve/main/Hermes-3-Llama-3.1-8B.Q8_0.gguf?download=true
+   89  ls 
+   90  main -m llama_model/Hermes-3-Llama-3.1-8B.Q8_0.gguf -p "You are a wizard"
+   91  main -m llama_model/Hermes-3-Llama-3.1-8B.Q8_0.gguf -p "You are a sales manager"
+   92  ps aux | grep python
+   93  main -m Hermes-3-Llama-3.1-8B.Q8_0.gguf -p "You are a sales manager"
+   94  llama.cpp --version
+   95  llama_cpp --version
+   96  htop
+   97  mamba install htop
+   98  ps aux
+   99  ps aux | grep python
+  100  llama.cpp --version
+  101  llama-cpp --version
+  102  main --version
+  103  mamba list
+  104  llama-cpp-python --version
+  105  transformers --version
+  106  python --version
+  107  mamba install llama-cpp
+  108  mamba install llama.cpp
+  109  xlm-roberta-basepip list | grep llama-cpp-python
+  110  pip list | grep llama-cpp-python
+  111  nvidia -smi
+  112  nvidea nivia-smi
+  113  nvidia-smi
+  114  CUDA_LAUNCH_BLOCKING=1 CUDA_VISIBLE_DEVICES=0 python model_training_GCV.py 
+  115  nvidia-smi
+  116  htop 
+  117  CUDA_LAUNCH_BLOCKING=1 CUDA_VISIBLE_DEVICES=0 pyt1on model_training_GCV.py 
+  118  CUDA_LAUNCH_BLOCKING=1 CUDA_VISIBLE_DEVICES=1 python model_training_GCV.py 
+  119  CH_BLOCKING=1 CUDA_VISIBLE_DEVICES=0 pyt1on model_training_GCV.py 
+  120  CUDA_VISIBLE_DEVICES=0 pytho1 model_training_GCV.py 
+  121  CUDA_VISIBLE_DEVICES=1 python model_training_GCV.py 
+  122  python /home/sharovv/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/printEnvVariablesToFile.py /home/sharovv/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/deactivate/bash/envVars.txt
+  123  nvidia-smi
+  124  ps aux | grep python
+  125  torch --version
+  126  python --version
+  127  accelerate --version
+  128  mamba install torch
+  129  mamba install datasets
+  130  transformers --version
+  131  /bin/python /home/sharovv/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/printEnvVariablesToFile.py /home/sharovv/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/deactivate/bash/envVars.txt
+  132  mamba install openai
+  133  screen
+  134  /bin/python /home/sharovv/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/printEnvVariablesToFile.py /home/sharovv/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/deactivate/bash/envVars.txt
+  135  /bin/python /home/sharovv/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/printEnvVariablesToFile.py /home/sharovv/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/deactivate/bash/envVars.txt
+  136  nvidia-smi
+  137  python print(torch.__version__)
+  138  mamba install numpy
+  139  conda info --envs
+  140  mamba info --envs
+  141  mamba info -envs
+  142  mamba info --envs
+  143  freeze -> requirements.txt 
+  144  nvcc --version
+  145  nvidia-smi
+  146  pip freeze > requirements.txt
+  147  nvidia-smi
+  148  ps aux | grep python
+  149  CUDA_VISIBLE_DEVICES=1 python model_training_GCV.py 
+  150  CUDA_VISIBLE_DEVICES=0 python model_training_GCV_2.py
+  151  nvidia-smi
+  152  cd llama_model/
+  153  wget https://huggingface.co/Mozilla/Meta-Llama-3.1-8B-Instruct-llamafile/blob/main/Meta-Llama-3.1-8B-Instruct.Q8_0.llamafile
+  154  chmod +x Meta-Llama-3.1-8B-Instruct.Q6_K.llamafile
+  155  wget https://huggingface.co/Mozilla/Meta-Llama-3.1-8B-Instruct-llamafile/resolve/main/Meta-Llama-3.1-8B-Instruct.Q8_0.llamafile?download=true
+  156  chmod +x Meta-Llama-3.1-8B-Instruct.Q6_K.llamafile
+  157  chmod +x Meta-Llama-3.1-8B-Instruct.Q8_0.llamafile 
+  158  ./Meta-Llama-3.1-8B-Instruct.Q8_0.llamafile 
+  159  cd ../model_embedding/
+  160  ls -la
+  161  nvidia-smi
+  162  /bin/python /home/sharovv/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/printEnvVariablesToFile.py /home/sharovv/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/deactivate/bash/envVars.txt
+  163  CUDA_VISIBLE_DEVICES=1 python model_training_GCV.py
+  164  python testing_output.py 
+  165  python testing_output_2.py 
+  166  python testing_output_3.py 
+  167  /bin/python /home/sharovv/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/printEnvVariablesToFile.py /home/sharovv/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/deactivate/bash/envVars.txt
+  168  nvidia-smi
+  169  cd llama_model
+  170  nvidia-smi
+  171  python llm_generate_tags.py 
+  172  python llm_test_responsibility.py 
+  173  curl http://localhost:8080/v1/chat/completions   -H "Content-Type: application/json"   -d '{
+  174       "model": "llama",
+  175       "messages": [{"role": "user", "content": "Say this is a test!"}],
+  176       "temperature": 0.0
+  177     }'
+  178  curl http://localhost:8080/v1/chat/completions   -H "Content-Type: application/json"   -d '{
+  179       "model": "llama",
+  180       "messages": [{"role": "user", "content": "Hello!"}],
+  181       "temperature": 0.0
+  182     }'
+  183  cd llama_model
+  184  ./Meta-Llama-3.1-8B-Instruct.Q8_0.llamafile
+  185  nvidia-smi
+  186  CUDA_VISIBLE_DEVICES=0 python testing_output_2.py 
+  187  curl http://localhost:8080/v1/chat/completions   -H "Content-Type: application/json"   -d '{
+  188       "model": "llama",
+  189       "messages": [{"role": "user", "content": "Say this is a test!"}],
+  190       "temperature": 0.0
+  191     }'
+  192  python llama-prompt.py 
+  193  python model_training_GCV.py 
+  194  CUDA_VISIBLE_DEVICES=1 python model_training_GCV.py
+  195  ./Meta-Llama-3.1-8B-Instruct.Q6_K.llamafile
+  196  cd ../model_embedding/
+  197  cd llama_model
+  198  ./Meta-Llama-3.1-8B-Instruct.Q8_O.llamafile
+  199  Meta-Llama-3.1-8B-Instruct.Q8_0.llamafile
+  200  ./Meta-Llama-3.1-8B-Instruct.Q8_0.llamafile 
+  201  CUDA_VISIBLE_DEVICES=1 python model_training_GCV_2.py
+  202  nvidia-smi
+  203  ps aux | grep python
+  204  nvidia-smi
+  205  ps aux | grep python
+  206  /bin/python /home/sharovv/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/printEnvVariablesToFile.py /home/sharovv/.vscode-server/extensions/ms-python.python-2024.2.1/pythonFiles/deactivate/bash/envVars.txt
+  207  ps aux | grep python
+  208  nvidia-smi
+  209  ps -u -p 83864
+  210  ps -u -p 89771
+  211  ps aux | grep python
+  212  ps -u -p 89970
+  213  ps -u -p 65913
+  214  ps -u sharovv
+  215  nvidia-smi | grep sharovv
+  216  nvidia-smi
+  217  ps aux | grep 'Z'
+  218  nvidia-smi
+  219  nvidia-smi | grep sharovv
+  220  ps -u sharovv
+  221  ps -u -p 83864
+  222  history > command_history.txt

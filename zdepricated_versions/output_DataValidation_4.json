@@ -1,0 +1,174 @@
+{
+    "date_issued": {
+        "total_occurrences": 6889,
+        "data_types": {
+            "list": 6889
+        },
+        "flags": {}
+    },
+    "language": {
+        "total_occurrences": 6889,
+        "data_types": {
+            "list": 6889
+        },
+        "flags": {
+            "Yksikammioisten sydä": "Invalid count",
+            "The effect of ski gl": "Invalid count",
+            "Adaptation and face ": "Invalid count"
+        }
+    },
+    "thesis_title": {
+        "total_occurrences": 13778,
+        "data_types": {
+            "list": 13778
+        },
+        "flags": {},
+        "min_length": 13,
+        "max_length": 424,
+        "avg_length": 95.52953984613151,
+        "min_example": "N/A",
+        "max_example": "N/A"
+    },
+    "faculty": {
+        "total_occurrences": 6889,
+        "data_types": {
+            "list": 6889
+        },
+        "flags": {
+            "Viidennen luokan opp": "Invalid count",
+            "Tapaustutkimus luetu": "Invalid count",
+            "Towards better acade": "Invalid count",
+            "Studenters uppfattni": "Invalid count",
+            "Topeliuksen satujen ": "Invalid count",
+            "Comparison of Music ": "Invalid count",
+            "Miten urheiluseurat ": "Invalid count",
+            "Tavataan taas koulus": "Invalid count",
+            "Kuluttajayhteisöt fa": "Invalid count",
+            "Digitaalisuuden vaik": "Invalid count",
+            "This is just the beg": "Invalid count",
+            "Refugee children's f": "Invalid count",
+            "Expectations, object": "Invalid count",
+            "Zur lexikografischen": "Invalid count",
+            "Sijoitettujen nuorte": "Invalid count",
+            "Social resilience an": "Invalid count",
+            "Avoin ongelmista - o": "Invalid count",
+            "Koettu työn epävarmu": "Invalid count",
+            "Arvojen selkiinnyttä": "Invalid count",
+            "A periphery extendin": "Invalid count",
+            "Tablet-tietokoneiden": "Invalid count",
+            "Opettajien käsityksi": "Invalid count",
+            "Ylimääräinen asiakir": "Invalid count",
+            "Testissä verkostosuh": "Invalid count",
+            "Musiikinopettajien t": "Invalid count",
+            "Technology acceptanc": "Invalid count",
+            "Tekijänoikeuslaki ed": "Invalid count",
+            "Luokanopettajan amma": "Invalid count",
+            "\"Ku talvella ei pais": "Invalid count",
+            "Tieto, tulkinta ja y": "Invalid count",
+            "International studen": "Invalid count",
+            "Density-functional t": "Invalid count",
+            "The two stories of e": "Invalid count",
+            "Musiikin erilaiset m": "Invalid count",
+            "Esiopetusikäisten la": "Invalid count",
+            "Svensk- och engelskl": "Invalid count",
+            "\"Kun käsistä tuli si": "Invalid count",
+            "Vapaaehtoisten rooli": "Invalid count",
+            "Rhetoric in the Amer": "Invalid count",
+            "Narratives of agency": "Invalid count",
+            "Selective trapping o": "Invalid count",
+            "Resursseista toimint": "Invalid count",
+            "Vastuu henkilöstön t": "Invalid count",
+            "Liikunnanopettajakou": "Invalid count",
+            "Den tyska verbkonstr": "Invalid count",
+            "Yhteistoiminnallinen": "Invalid count",
+            "Minäpystyvyyden ja i": "Invalid count",
+            "Ammattilaisten lähis": "Invalid count",
+            "Conflicts in workpla": "Invalid count",
+            "Sosiaalinen tuki ver": "Invalid count",
+            "The role of non form": "Invalid count",
+            "Kokemuksia laaja-ala": "Invalid count",
+            "Mündliche Übungen ": "Invalid count",
+            "\"Hyppäänkö bussin al": "Invalid count",
+            "Instagram and Facebo": "Invalid count",
+            "\"Pulpetti passivoi, ": "Invalid count",
+            "Toimintatutkimus mus": "Invalid count",
+            "Pahoinvoinnin turrut": "Invalid count",
+            "Eleverna är det vikt": "Invalid count",
+            "Kolmiportaisen tuen ": "Invalid count",
+            "The intriguing human": "Invalid count",
+            "Elämänkaari, asumist": "Invalid count",
+            "Nopean nimeämisen te": "Invalid count",
+            "Ujous musiikintunnei": "Invalid count",
+            "Videon innovatiivist": "Invalid count",
+            "Opettajaopiskelijoid": "Invalid count",
+            "Laaja-alaiset osaami": "Invalid count",
+            "\"Denna lektion måste": "Invalid count",
+            "Political godfathers": "Invalid count",
+            "Gender differences i": "Invalid count",
+            "Eriyttäminen 7. luok": "Invalid count",
+            "Työsuojelulla työhyv": "Invalid count",
+            "Rajojen rikkomista, ": "Invalid count",
+            "Sveriges irredenta :": "Invalid count",
+            "PISA 2003: Die Auswi": "Invalid count",
+            "Zur Rolle von Sprach": "Invalid count",
+            "The usage of social ": "Invalid count",
+            "An exploration of so": "Invalid count",
+            "Språkinlärning genom": "Invalid count",
+            "Sosiaalisen median m": "Invalid count",
+            "Liminality in paradi": "Invalid count",
+            "Responsible manageme": "Invalid count",
+            "\"Steinerpedagoginen ": "Invalid count",
+            "Arviointi luokanopet": "Invalid count",
+            "The idea of separati": "Invalid count",
+            "Työntekijöiden ja es": "Invalid count",
+            "Co-creation vs. bran": "Invalid count",
+            "Pystyvyysuskomusten ": "Invalid count",
+            "Miksi tanssin? : Ole": "Invalid count",
+            "Välttämätöntä ja mer": "Invalid count",
+            "JamMo-oppimisympäris": "Invalid count",
+            "Urheilun sponsoroint": "Invalid count",
+            "Koulusta vankilaan j": "Invalid count",
+            "Kielteiseen asiakasp": "Invalid count",
+            "\"Puhuminen, no emmä ": "Invalid count",
+            "Constructing contain": "Invalid count",
+            "Identifying strategi": "Invalid count",
+            "Diversity management": "Invalid count"
+        }
+    },
+    "subject_tags": {
+        "total_occurrences": 6889,
+        "data_types": {
+            "list": 6889
+        },
+        "flags": {},
+        "min_length": 1,
+        "max_length": 44,
+        "avg_length": 6.115982000290318,
+        "min_example": "N/A",
+        "max_example": "N/A"
+    },
+    "additional_tags": {
+        "total_occurrences": 6889,
+        "data_types": {
+            "list": 6889
+        },
+        "flags": {},
+        "min_length": 1,
+        "max_length": 37,
+        "avg_length": 3.61649005661199,
+        "min_example": "N/A",
+        "max_example": "N/A"
+    },
+    "abstract": {
+        "total_occurrences": 6888,
+        "data_types": {
+            "list": 6888
+        },
+        "flags": {},
+        "min_length": 90,
+        "max_length": 8283,
+        "avg_length": 2085.9824332171893,
+        "min_example": "N/A",
+        "max_example": "N/A"
+    }
+}

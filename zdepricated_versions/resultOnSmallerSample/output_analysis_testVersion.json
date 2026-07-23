@@ -1,0 +1,50 @@
+{
+    "key": {
+        "total_occurrences": 11061,
+        "data_types": {
+            "str": 11061
+        },
+        "flags": []
+    },
+    "value": {
+        "total_occurrences": 11061,
+        "data_types": {
+            "str": 11061
+        },
+        "flags": []
+    },
+    "language": {
+        "total_occurrences": 11061,
+        "data_types": {
+            "NoneType": 5353,
+            "str": 5708
+        },
+        "flags": [
+            "D"
+        ]
+    },
+    "element": {
+        "total_occurrences": 11061,
+        "data_types": {
+            "str": 11061
+        },
+        "flags": []
+    },
+    "qualifier": {
+        "total_occurrences": 11061,
+        "data_types": {
+            "str": 10411,
+            "NoneType": 650
+        },
+        "flags": [
+            "D"
+        ]
+    },
+    "schema": {
+        "total_occurrences": 11061,
+        "data_types": {
+            "str": 11061
+        },
+        "flags": []
+    }
+}

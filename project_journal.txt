@@ -1,0 +1,64 @@
+# Project Development Log
+
+## Initial Setup
+- [Date: NaN] Established the basic framework for the thesis topic generation project. Initial scripts developed for parsing JSON data.
+
+## Issues Encountered
+### Data Handling
+- Output.json file too large for efficient handling in standard text editors like VS Code.
+  - Future Plan: Implemented data segmentation to manage JSON size. Further plans to introduce pagination or incremental data loading.
+- Incorrect data parsing due to unexpected nested JSON structure.
+  - Action Taken: Modified parsing algorithms to handle deeper nested structures.
+
+### Environment Configuration
+- Potential pollution of global Python environment recognized.
+  - Solution: Adopted virtual environments for project isolation. Use command `.venv\Scripts\activate` to activate.
+
+### Data Diversity
+- Some data fields are in Finnish, complicating uniform data processing.
+  - Future Plan: Explore integration of a translation API to handle multilingual data.
+
+## Development Improvements
+- Dynamic tagging system for output files to improve data management and traceability planned.
+- Flag mechanism for identifying fields with missing or problematic data was considered but found unnecessary after deeper data structure analysis.
+
+### Script Enhancements
+- [Date: NaN] Deprecated `data_preparation.py` in favor of `v2_data_preparation.py`, which outputs results to `prepared_datasets` directory and allows for more flexible dataset creation.
+
+## Future Goals
+- Introduce dynamic adjustment to fetching limits based on system feedback, akin to a file system loader.
+- Implement data validation checks at the start of scripts to ensure environment readiness and data integrity.
+
+## Version Control
+- Start using version control (e.g., Git) to manage project changes efficiently.
+  - Initial Setup: Run `git init` in the project directory to initialize a new Git repository.
+  - Commit Changes: Use `git add .` to stage changes and `git commit -m "commit message"` to commit updates.
+  - Regular Updates: Commit changes frequently with descriptive messages to keep a clear record of project evolution.
+  - Backup: Consider setting up a remote repository on platforms like GitHub or GitLab for online backup and collaboration.
+## Update on 2024-05-02 13:18:39
+- Finalized session updates.
+
+## Update on 2024-05-02 13:22:55
+- Finalized session updates.
+
+## Update on 2024-05-02 13:30:23
+- Finalized session updates.
+
+## Update on 2024-10-13 20:30:42
+- Finalized session updates.
+-It becomes harder to manage project. Should you at least delete depricated_versions folder; move prepared_datasets, resultOnSmallerSample to trash?
+-ToDo update finalizer to run recordProjectStructure and update message to include exact "pip freeze > .\project_utils\requirements-frozen.txt" and reminder to run .venv in correct folder
+-move field_translate, prepared_datasets, resultOnSmallerSample to depricated_versions
+-check if path exist, else create if you design to create new directory/make it flexible
+-what if in case of failure, long work, but error delete all result?
+-should I make journal for dataset modification? I think you are out of style for writing journal, aren't you programmer, to decide on your own?
+-What will happen if machine is too weak and need option to proceed function on cloud computing service?
+
+## Update on 2024-10-25 13:08:35
+- Finalized session updates.
+
+## Update on 2024-11-15 06:33:38
+- Finalized session updates.
+
+## Update on 2024-11-15 14:33:17
+- Finalized session updates.

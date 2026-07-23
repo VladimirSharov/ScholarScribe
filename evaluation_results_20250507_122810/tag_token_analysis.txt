@@ -1,0 +1,93 @@
+TAG TOKEN ANALYSIS
+=================
+
+Total unique original tags: 7322
+Total unique generated tags: 13732
+
+Top 20 original tags:
+  vuorovaikutus: 90
+  opetus: 88
+  liikunta: 81
+  fyysinen aktiivisuus: 71
+  opettajat: 57
+  oppiminen: 57
+  nuoret: 53
+  identiteetti: 52
+  tunteet: 51
+  sosiaalinen media: 48
+  motivaatio: 47
+  lapset: 44
+  viestintä: 42
+  työhyvinvointi: 42
+  musiikki: 39
+  koululiikunta: 39
+  sosiaalityö: 39
+  tietoturva: 39
+  ikääntyneet: 38
+  opiskelijat: 37
+
+Top 20 generated tags:
+  tutkimus: 254
+  pedagogiikka: 108
+  Qualitative Research: 90
+  koulutus: 82
+  liikunta: 78
+  tutkimusmenetelmät: 66
+  kasvatus: 65
+  sisällönanalyysi: 64
+  laadullinen tutkimus: 56
+  opetus: 54
+  hyvinvointi: 53
+  Education: 51
+  Case Study: 51
+  opettajat: 47
+  opetusmenetelmät: 45
+  sosiaalityö: 45
+  oppiminen: 42
+  Tutkimus: 42
+  Suomi: 41
+  urheilu: 35
+
+Top 20 original tags not in generated:
+  lapset: 44
+  lapset (ikäryhmät): 28
+  työ: 24
+  English language: 20
+  liiketoimintamallit: 15
+  työyhteisöt: 14
+  urheilijat: 14
+  communication: 12
+  kehysanalyysi: 12
+  big data: 12
+  learning: 12
+  lähisuhdeväkivalta: 12
+  päiväkodit: 10
+  kunnat: 10
+  esineiden internet: 10
+  kestävyysharjoittelu: 10
+  physical activeness: 10
+  lihakset: 10
+  opetusteknologia: 10
+  säteily: 10
+
+Top 20 generated tags not in original:
+  Qualitative Research: 90
+  tutkimusmenetelmät: 66
+  Education: 51
+  Case Study: 51
+  Tutkimus: 42
+  psykologia: 34
+  Content Analysis: 31
+  opettaminen: 22
+  Computer Science: 22
+  Koulutus: 21
+  liikuntatiede: 20
+  Consumer Behavior: 20
+  Marketing: 20
+  Communication Studies: 20
+  Language Learning: 19
+  pro gradu: 19
+  tutkimusmetodologia: 18
+  liikuntapedagogiikka: 18
+  Psychology: 18
+  Physical Activity: 18

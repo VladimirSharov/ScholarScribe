@@ -1,0 +1,1118 @@
+├── ScholarScribe/
+│   ├── main.py
+│   ├── .gitignore
+│   ├── tags.pickle
+│   ├── llm_generate_tags_sv3.py
+│   ├── llama_install.py
+│   ├── llm_generate_tags_sv2.py
+│   ├── project_journal.txt
+│   ├── llm_test_responsibility.py
+│   ├── requirements.txt
+│   ├── main.log
+│   ├── testing_output_2.py
+│   ├── temp_notes.txt
+│   ├── changelog.txt
+│   ├── model_training_GCV_2.py
+│   ├── testing_output_3.py
+│   ├── llama-test.py
+│   ├── Mambaforge-24.9.2-0-Linux-x86_64.sh
+│   ├── README.md
+│   ├── command_history.txt
+│   ├── model_training_GCV_singleSoft.py
+│   ├── xlm_roberta_prediction.json
+│   ├── llama-prompt.py
+│   ├── images/
+│   │   ├── faculty_distribution.png
+│   │   ├── length_distributions.png
+│   │   ├── visualization_distro.py
+│   │   ├── language_distribution.png
+│   │   ├── visualization_lang.py
+│   │   ├── temporal_distribution.png
+│   ├── data_split_v4/
+│   │   ├── full_dataset_v3_train.json
+│   │   ├── full_dataset_v3_test.json
+│   │   ├── full_dataset_v3_val.json
+│   ├── data_collection/
+│   │   ├── collection.log
+│   │   ├── api_data_collector.py
+│   │   ├── state.json
+│   │   ├── output.json
+│   ├── logs/
+│   │   ├── thesis_tagger_20241203_235556.log
+│   │   ├── thesis_tagger_20241204_141352.log
+│   │   ├── tag_generation_20241210_132410.log
+│   │   ├── tag_generation_20241210_131439.log
+│   │   ├── thesis_tagger_20241203_234248.log
+│   │   ├── tag_generation_20241206_114437.log
+│   │   ├── thesis_tagger_20241204_151126.log
+│   │   ├── tag_generation_20241204_154418.log
+│   │   ├── thesis_tagger_20241213_141245.log
+│   │   ├── tag_generation_20241209_120013.log
+│   │   ├── tag_generation_20241210_131154.log
+│   │   ├── thesis_tagger_20241204_144534.log
+│   │   ├── tag_generation_20241210_133749.log
+│   ├── data_validation/
+│   │   ├── output_json_dataset_field_metrics.json
+│   │   ├── output_DataFormats.json
+│   │   ├── output_ValuesSortedByField.json
+│   │   ├── output_json_dataset_field_metrics_5.json
+│   │   ├── output_DataValidation.json
+│   │   ├── json_data_format_analyzer.py
+│   │   ├── json_data_integrity_checker.py
+│   │   ├── Faculty_encoding.py
+│   │   ├── output_FieldsStructure.json
+│   │   ├── json_dataset_field_metric.py
+│   │   ├── json_value_occurrence_counter.py
+│   ├── comprehensive_debug_output/
+│   │   ├── tag_probabilities_0.csv
+│   │   ├── input_text_0.txt
+│   │   ├── debug_example_0.json
+│   ├── data_preparation/
+│   │   ├── v3_data_preparation.py
+│   │   ├── field_processor.py
+│   │   ├── stratify_split_v2.py
+│   │   ├── split_abstract_v2.py
+│   │   ├── field_remover.py
+│   ├── model_embedding/
+│   │   ├── deberta_model.py
+│   │   ├── specter2_model_Example.py
+│   │   ├── deberta_test.py
+│   │   ├── specter2_model_Small.py
+│   │   ├── model_output_20241204_144534/
+│   │   │   ├── tag_mapping_20241204_144539.pickle
+│   │   ├── model_output_20241204_141352/
+│   │   │   ├── tag_mapping_20241204_141357.pickle
+│   │   │   ├── checkpoint-260/
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── config.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── optimizer.pt
+│   │   │   ├── checkpoint-390/
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── config.json
+│   │   │   ├── checkpoint-520/
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── config.json
+│   │   │   │   ├── model.safetensors
+│   │   ├── model_output_20241202_153639/
+│   │   │   ├── checkpoint-260/
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── config.json
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── optimizer.pt
+│   │   │   ├── checkpoint-390/
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── config.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   ├── checkpoint-520/
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── config.json
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   ├── checkpoint-130/
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── config.json
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── special_tokens_map.json
+│   │   ├── model_output_24eafe79/
+│   │   │   ├── checkpoint-130/
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── config.json
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── trainer_state.json
+│   │   │   ├── checkpoint-520/
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── config.json
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── trainer_state.json
+│   │   │   ├── checkpoint-390/
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── config.json
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── training_args.bin
+│   │   │   ├── checkpoint-260/
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── config.json
+│   │   │   │   ├── tokenizer_config.json
+│   │   ├── model_output_20241204_151126/
+│   │   │   ├── tag_mapping_20241204_151130.pickle
+│   │   │   ├── checkpoint-390/
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── config.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── optimizer.pt
+│   │   │   ├── checkpoint-260/
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── config.json
+│   │   │   ├── checkpoint-520/
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── config.json
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── tokenizer_config.json
+│   │   ├── model_output_2238d4cf/
+│   │   │   ├── checkpoint-130/
+│   │   │   │   ├── config.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   ├── checkpoint-260/
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── config.json
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   ├── checkpoint-390/
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── config.json
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── training_args.bin
+│   │   │   ├── checkpoint-520/
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── config.json
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   ├── model_output_20241128_110456/
+│   │   │   ├── checkpoint-520/
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── config.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   ├── checkpoint-390/
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── config.json
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   ├── checkpoint-260/
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── config.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   ├── checkpoint-130/
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── config.json
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   ├── model_output_20241213_141245/
+│   │   │   ├── tag_mapping_20241213_141251.pickle
+│   │   │   ├── checkpoint-334/
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── config.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── training_args.bin
+│   │   │   ├── checkpoint-501/
+│   │   │   │   ├── config.json
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── model.safetensors
+│   │   │   ├── checkpoint-668/
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── config.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   ├── model_output_20241203_235556/
+│   │   │   ├── tag_mapping_20241203_235601.pickle
+│   │   ├── model_output/
+│   │   │   ├── checkpoint-520/
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── config.json
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   ├── checkpoint-260/
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── config.json
+│   │   │   │   ├── scheduler.pt
+│   │   │   ├── checkpoint-390/
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── scheduler.pt
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── config.json
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   ├── checkpoint-130/
+│   │   │   │   ├── tokenizer_config.json
+│   │   │   │   ├── config.json
+│   │   │   │   ├── tokenizer.json
+│   │   │   │   ├── trainer_state.json
+│   │   │   │   ├── rng_state.pth
+│   │   │   │   ├── sentencepiece.bpe.model
+│   │   │   │   ├── optimizer.pt
+│   │   │   │   ├── model.safetensors
+│   │   │   │   ├── special_tokens_map.json
+│   │   │   │   ├── training_args.bin
+│   │   │   │   ├── scheduler.pt
+│   ├── .vscode/
+│   │   ├── launch.json
+│   ├── depricated_versions/
+│   │   ├── output_DataValidation_4.json
+│   │   ├── prepared_data_archived.json
+│   │   ├── output_analysis_3.json
+│   │   ├── embedding_F_R.npy
+│   │   ├── embedding_A_T_2.npy
+│   │   ├── embedding_A_T_full.pt
+│   │   ├── title_subjects.json
+│   │   ├── data_preparation.py
+│   │   ├── prepared_data.json
+│   │   ├── faculty_related_v2_translation.json
+│   │   ├── embedding_A_T.npy
+│   │   ├── title_abstract.json
+│   │   ├── output_DataValidation.json
+│   │   ├── output_backup.json
+│   │   ├── prepared_datasets/
+│   │   │   ├── unique_faculty_pairs.json
+│   │   │   ├── faculty_related_v2_test.json
+│   │   │   ├── faculty_related_v2.json
+│   │   │   ├── faculty_related_v2_val.json
+│   │   │   ├── full_details_tfidf.json
+│   │   │   ├── single_language_faculties.json
+│   │   │   ├── faculty_related_v2_train.json
+│   │   │   ├── faculty_related.json
+│   │   │   ├── full_details.json
+│   │   ├── resultOnSmallerSample/
+│   │   │   ├── output_4.json
+│   │   │   ├── output_analysis_GlobalFields.json
+│   │   │   ├── output_analysis_3_testVersion.json
+│   │   │   ├── output_analysis_testVersion.json
+│   │   │   ├── output_analysis_2_testVersion.json
+│   │   │   ├── prepared_data_testVersion.json
+│   │   ├── field_translation/
+│   │   │   ├── translateFieldsNew_test.py
+│   │   │   ├── translated_data.json
+│   │   │   ├── translateFieldsNew_v2.py
+│   │   │   ├── translateFieldsNew.py
+│   ├── data_split/
+│   │   ├── full_dataset_test.json
+│   │   ├── full_dataset_val.json
+│   │   ├── full_dataset_train.json
+│   │   ├── split_abstract.py
+│   ├── project_utils/
+│   │   ├── requirements-frozen.txt
+│   │   ├── recordProjectStructure.py
+│   │   ├── finalizer.py
+│   │   ├── project_structure.txt
+│   ├── model_outputs/
+│   │   ├── tag_generation_results_20241209_171442.json
+│   │   ├── tag_generation_results_20241210_133852.json
+│   ├── llama_model/
+│   │   ├── Meta-Llama-3.1-8B-Instruct.Q8_0.llamafile
+│   │   ├── Hermes-3-Llama-3.1-8B.Q8_0.gguf
+│   │   ├── main.log
+│   ├── wandb/
+│   │   ├── debug.log
+│   │   ├── debug-internal.log
+│   │   ├── run-20241119_002122-73umd6g6/
+│   │   │   ├── run-73umd6g6.wandb
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── files/
+│   │   │   │   ├── requirements.txt
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-summary.json
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-core.log
+│   │   ├── run-20241202_151039-llw3zu5x/
+│   │   │   ├── run-llw3zu5x.wandb
+│   │   │   ├── files/
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-summary.json
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── logs/
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug-core.log
+│   │   ├── run-20241119_005630-fqyxdx8d/
+│   │   │   ├── run-fqyxdx8d.wandb
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-core.log
+│   │   ├── run-20241203_235557-yiy7d64w/
+│   │   │   ├── run-yiy7d64w.wandb
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── files/
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-internal.log
+│   │   ├── run-20241122_145823-n7e8hblw/
+│   │   │   ├── run-n7e8hblw.wandb
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── wandb-summary.json
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── logs/
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug-core.log
+│   │   ├── run-20241119_142430-38t2jep2/
+│   │   │   ├── run-38t2jep2.wandb
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug.log
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   ├── run-20241202_151528-y5typ7dy/
+│   │   │   ├── run-y5typ7dy.wandb
+│   │   │   ├── files/
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug.log
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   ├── run-20241119_003827-mnggwvp1/
+│   │   │   ├── run-mnggwvp1.wandb
+│   │   │   ├── files/
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-internal.log
+│   │   ├── run-20241204_151127-sqb8hsxk/
+│   │   │   ├── run-sqb8hsxk.wandb
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-core.log
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   ├── run-20241119_003041-hna27dku/
+│   │   │   ├── run-hna27dku.wandb
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── wandb-summary.json
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── logs/
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug-internal.log
+│   │   ├── run-20241126_144815-0fmhtxsu/
+│   │   │   ├── run-0fmhtxsu.wandb
+│   │   │   ├── files/
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── wandb-summary.json
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug.log
+│   │   ├── run-20241204_141354-kekgj58r/
+│   │   │   ├── run-kekgj58r.wandb
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-core.log
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── wandb-summary.json
+│   │   ├── run-20241116_115915-3mbyhl0d/
+│   │   │   ├── run-3mbyhl0d.wandb
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-core.log
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── files/
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── output.log
+│   │   ├── run-20241119_003629-6g68xulf/
+│   │   │   ├── run-6g68xulf.wandb
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-summary.json
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug.log
+│   │   ├── run-20241202_153640-lo7b8nk1/
+│   │   │   ├── run-lo7b8nk1.wandb
+│   │   │   ├── logs/
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug-core.log
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── config.yaml
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   ├── run-20241122_151606-3imqtlmp/
+│   │   │   ├── run-3imqtlmp.wandb
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug.log
+│   │   │   ├── files/
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   ├── run-20241204_144535-od4pgfbo/
+│   │   │   ├── run-od4pgfbo.wandb
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-core.log
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── wandb-summary.json
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   ├── run-20241119_004943-64mz6vgv/
+│   │   │   ├── run-64mz6vgv.wandb
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-core.log
+│   │   │   ├── files/
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── wandb-metadata.json
+│   │   ├── run-20241122_151349-2l9vq1e9/
+│   │   │   ├── run-2l9vq1e9.wandb
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── config.yaml
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-core.log
+│   │   ├── run-20241119_140748-fh0lg21a/
+│   │   │   ├── run-fh0lg21a.wandb
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── requirements.txt
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug.log
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   ├── run-20241119_004305-ds1kjjcw/
+│   │   │   ├── run-ds1kjjcw.wandb
+│   │   │   ├── logs/
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug-core.log
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── files/
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── output.log
+│   │   ├── run-20241129_130457-jbrq929g/
+│   │   │   ├── run-jbrq929g.wandb
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── config.yaml
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug.log
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   ├── run-20241213_141246-eafwr9w6/
+│   │   │   ├── run-eafwr9w6.wandb
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── logs/
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug-internal.log
+│   │   │   ├── files/
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-metadata.json
+│   │   ├── run-20241119_002204-rb3xi7l7/
+│   │   │   ├── run-rb3xi7l7.wandb
+│   │   │   ├── files/
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── output.log
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── logs/
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug-core.log
+│   │   ├── run-20241119_030307-i821bsor/
+│   │   │   ├── run-i821bsor.wandb
+│   │   │   ├── files/
+│   │   │   │   ├── requirements.txt
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── output.log
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-core.log
+│   │   ├── run-20241203_234249-rkvns08d/
+│   │   │   ├── run-rkvns08d.wandb
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug.log
+│   │   │   ├── files/
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── output.log
+│   │   ├── run-20241126_141727-639yql1j/
+│   │   │   ├── run-639yql1j.wandb
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── files/
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   ├── logs/
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug-core.log
+│   │   ├── run-20241122_143337-byyuje6p/
+│   │   │   ├── run-byyuje6p.wandb
+│   │   │   ├── logs/
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug-core.log
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── requirements.txt
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   ├── run-20241122_145135-h0w3dd7i/
+│   │   │   ├── run-h0w3dd7i.wandb
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-core.log
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── config.yaml
+│   │   ├── run-20241202_144250-sraakwl8/
+│   │   │   ├── run-sraakwl8.wandb
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── files/
+│   │   │   │   ├── output.log
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   ├── logs/
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug-internal.log
+│   │   ├── run-20241122_150904-j23cgpu7/
+│   │   │   ├── run-j23cgpu7.wandb
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug-internal.log
+│   │   │   │   ├── debug.log
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── files/
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── output.log
+│   │   │   │   ├── config.yaml
+│   │   │   │   ├── wandb-metadata.json
+│   │   ├── run-20241119_001159-sxr0atsd/
+│   │   │   ├── run-sxr0atsd.wandb
+│   │   │   ├── files/
+│   │   │   │   ├── wandb-summary.json
+│   │   │   │   ├── wandb-metadata.json
+│   │   │   │   ├── output.log
+│   │   │   │   ├── config.yaml
+│   │   │   ├── tmp/
+│   │   │   │   ├── code/
+│   │   │   ├── logs/
+│   │   │   │   ├── debug-core.log
+│   │   │   │   ├── debug.log
+│   │   │   │   ├── debug-internal.log
+│   ├── .git/
+│   │   ├── index
+│   │   ├── ORIG_HEAD
+│   │   ├── config
+│   │   ├── HEAD
+│   │   ├── COMMIT_EDITMSG
+│   │   ├── description
+│   │   ├── packed-refs
+│   │   ├── FETCH_HEAD
+│   │   ├── logs/
+│   │   │   ├── HEAD
+│   │   │   ├── refs/
+│   │   │   │   ├── heads/
+│   │   │   │   │   ├── master-remote
+│   │   │   │   │   ├── master
+│   │   │   │   │   ├── remote
+│   │   │   │   ├── remotes/
+│   │   │   │   │   ├── origin/
+│   │   │   │   │   │   ├── remote
+│   │   │   │   │   │   ├── HEAD
+│   │   ├── branches/
+│   │   ├── objects/
+│   │   │   ├── c7/
+│   │   │   │   ├── 1efe386ba46b200072bd3b483c134e0bd1193a
+│   │   │   │   ├── f7c931af96e97af9365135a1a8faf118b0e6c7
+│   │   │   ├── fa/
+│   │   │   │   ├── 9d9574b7069a24477a9775478a324a7e95e110
+│   │   │   │   ├── ac30f2dc73678112fe15ff8f365bb4d16a88a7
+│   │   │   ├── info/
+│   │   │   ├── 4a/
+│   │   │   │   ├── 6235fd2c43baf342d6d1c036ae07d47ecc93d6
+│   │   │   ├── 84/
+│   │   │   │   ├── 07bc408bdca957ec89b5faa40a8019a60c464c
+│   │   │   ├── ec/
+│   │   │   │   ├── 6d3cba52c11caeb19b4eb1fb6f111403c9f459
+│   │   │   ├── 8d/
+│   │   │   │   ├── 5ab6cdefcfc87b1c149acb066e96ca18d14d83
+│   │   │   ├── 5b/
+│   │   │   │   ├── 2a202daec446297a7a2fac2f47ff43eab9686c
+│   │   │   ├── 2e/
+│   │   │   │   ├── 26f61c3c95663731c06ead9aa7da109f1e9367
+│   │   │   ├── 97/
+│   │   │   │   ├── 115db8da6dc3d4cc8509f6f4fc7fb0209ee5b1
+│   │   │   ├── a6/
+│   │   │   │   ├── 0ea6a1cd286d5e42e4896bec7d32661f71b7e1
+│   │   │   ├── 90/
+│   │   │   │   ├── c3bcf3acd792c57aa781d29e710a2c6aef062b
+│   │   │   ├── 09/
+│   │   │   │   ├── c117ca0b656f6db9909207d62c8cbc35c02d71
+│   │   │   ├── 03/
+│   │   │   │   ├── 2cb155757dc4b7e7271775675cbdbdced4d269
+│   │   │   ├── 4f/
+│   │   │   │   ├── 1d700e6bcb44b14706c3cdc645ef86574c0e09
+│   │   │   ├── bc/
+│   │   │   │   ├── 7c7041fe99823a133f91029bbd654ba43bd34c
+│   │   │   ├── c0/
+│   │   │   │   ├── 46158982acb351ec7172fa64148584d6f815df
+│   │   │   ├── fb/
+│   │   │   │   ├── 44f01ae77f564ff5c0fb56931b380b6d562b71
+│   │   │   ├── d9/
+│   │   │   │   ├── 665de0448b9a1b493efd4bf3d88f6351e7e883
+│   │   │   ├── d3/
+│   │   │   │   ├── 16dfedf064fa97e60ac432efaf24a7db2018f2
+│   │   │   │   ├── f7b25a747e6c34044c9a61441a8580b599023a
+│   │   │   ├── 51/
+│   │   │   │   ├── 94a588a9556062ffbb2dc502d68a952ca58fee
+│   │   │   │   ├── a2c80101503d2639a07bb254f9a80289fd5ed9
+│   │   │   ├── 3e/
+│   │   │   │   ├── 9cc7057f73054460a8e4986302aec940b1a03b
+│   │   │   ├── 4b/
+│   │   │   │   ├── d39d613d544a18f23c706c80a46fea124f0c6b
+│   │   │   ├── 63/
+│   │   │   │   ├── 4a8acf8378113154376588ded8a7395e66ab41
+│   │   │   ├── 42/
+│   │   │   │   ├── 66a9d78fdc3cc36b682d419f6b94f1b7bae72f
+│   │   │   ├── 35/
+│   │   │   │   ├── 162695482fda4b830fbe045a08a5302e6bfe68
+│   │   │   ├── 2f/
+│   │   │   │   ├── 17eccbe41e501939704f4dfff0c7710ebcb41f
+│   │   │   │   ├── 5b0c542143835d4fcf30ddb669e08020810532
+│   │   │   ├── 99/
+│   │   │   │   ├── 8561589260505a47c9b1107a70011eff0d816d
+│   │   │   │   ├── 8ac9d5d51ad113a85b5400d6cc1488a8845b87
+│   │   │   │   ├── 4cc84a3ae20ce281c953033333d9f27283e817
+│   │   │   ├── 1c/
+│   │   │   │   ├── 6b2e130122f3cc7ff00ae50c42688f629acbbb
+│   │   │   ├── 13/
+│   │   │   │   ├── 6666e7a6bdc77f759c4670f04a440822bf1c60
+│   │   │   ├── fe/
+│   │   │   │   ├── 093a48ecbad23e11a0143df93c6c0d34789dc8
+│   │   │   ├── ab/
+│   │   │   │   ├── b367065016f7a8a1a6326e749198e836f43a42
+│   │   │   ├── c3/
+│   │   │   │   ├── dc8fe93367d2f2db197a23ab8c76ef01567ded
+│   │   │   ├── 21/
+│   │   │   │   ├── c349c6fda862c046f57bdff89a90aacf33080f
+│   │   │   │   ├── 75768f19aa8bda47328bef32438b8e150fc69d
+│   │   │   ├── 56/
+│   │   │   │   ├── 04f47a4c203e3acbe9b3fb91e68f52e44c1c0e
+│   │   │   ├── 0b/
+│   │   │   │   ├── bf75ef0db442a2e02c609e11aa185e8ad3ecae
+│   │   │   ├── pack/
+│   │   │   │   ├── tmp_pack_23fviQ
+│   │   │   │   ├── pack-b1a4929fb1b77f65c672c79b9bc4c1d539276054.rev
+│   │   │   │   ├── pack-b1a4929fb1b77f65c672c79b9bc4c1d539276054.idx
+│   │   │   │   ├── pack-b1a4929fb1b77f65c672c79b9bc4c1d539276054.pack
+│   │   │   ├── 9a/
+│   │   │   │   ├── 31ed50514d79c77893d04f8a9e607a5b5bbe92
+│   │   │   ├── a0/
+│   │   │   │   ├── 041c3ef5e58d8a977bfb27f3985c3a7e46be48
+│   │   │   ├── 2c/
+│   │   │   │   ├── 2852a89e307a848b09a488ac8a24e50a57ed04
+│   │   │   ├── ca/
+│   │   │   │   ├── f2df82a7e5bcd64ee23eac386dd4b5d64c7706
+│   │   │   ├── 1a/
+│   │   │   │   ├── 266ea1583d9d92441b6364f4a52e06b7d06b99
+│   │   │   ├── e8/
+│   │   │   │   ├── b745a26fb3343e31084f9cc6e597155052a7d6
+│   │   │   ├── 05/
+│   │   │   │   ├── 468530456a2504ad3c498d04124be9b3e6b430
+│   │   │   ├── 2d/
+│   │   │   │   ├── 8785318141606abb4b24821ee4960796243dde
+│   │   │   ├── 24/
+│   │   │   │   ├── 3b932ca02787165c7de047e0f899785083ed0c
+│   │   │   ├── 9f/
+│   │   │   │   ├── 55e431e611bf001a10eaa6184b319fc9568bdd
+│   │   │   ├── eb/
+│   │   │   │   ├── 9af2f2c3919f52002a05580749a76469b28964
+│   │   │   ├── 81/
+│   │   │   │   ├── 557f1ae252eece1373fe0c4f689d57b7828afa
+│   │   │   ├── 4d/
+│   │   │   │   ├── 97dca526156039d77c376e740828bd8931047a
+│   │   │   ├── ba/
+│   │   │   │   ├── 8be3c0c4c0ce9cbf2a2dfe1c5d0a35e957aba5
+│   │   │   ├── 9b/
+│   │   │   │   ├── 114197b7a5f31acd1a26fbafb4f0f27f312d0c
+│   │   │   ├── 57/
+│   │   │   │   ├── af6d71c2536fe381ec9e2ffad0d45511fb3a37
+│   │   │   ├── d5/
+│   │   │   │   ├── 698132694f4f1bcff08fa7d937b1701812598e
+│   │   │   ├── c8/
+│   │   │   │   ├── b7a4c7225019d185a03c3030c2310e4dd9567a
+│   │   │   ├── cb/
+│   │   │   │   ├── 428e13f6bbc7f304abde230145dc8c3cd4de49
+│   │   │   ├── 98/
+│   │   │   │   ├── b22886e8516859d253cadb5b456ce362a6cc21
+│   │   │   ├── 01/
+│   │   │   │   ├── 204b4477ba40fd8b5c07ee057f3a0ce0ef82f1
+│   │   │   ├── a3/
+│   │   │   │   ├── 6842da6faa1852aa4720b5f804832908290cfe
+│   │   │   │   ├── da6549ec7db54cdc861f3ad642bec036039e08
+│   │   │   ├── 1b/
+│   │   │   │   ├── 1300f96858f7452f6c05e6ab5a46d261329fc9
+│   │   │   ├── 39/
+│   │   │   │   ├── 29c67cd009b27f98c89a88fd144f0669a83a5a
+│   │   │   ├── 49/
+│   │   │   │   ├── 5df6798205251b6c3d0f2edf8c11f84c4e39f5
+│   │   │   ├── e1/
+│   │   │   │   ├── b708fb2a8248d3346f19893977698ace5290f4
+│   │   │   ├── 8f/
+│   │   │   │   ├── 865bd4ba55430ac7a75e229d1252e646abc7ef
+│   │   │   │   ├── c0c73dfe349a4eb120fdd4a66f8c9bef1c15f1
+│   │   │   ├── f9/
+│   │   │   │   ├── 5a437c275b5d486b1c2d7d523bef89e3fa65ae
+│   │   │   ├── db/
+│   │   │   │   ├── 9af13bf09fd3028ca32be90d3fb66d5e470399
+│   │   │   │   ├── 7bc087040dff7f7c87362abf654d05bac5812b
+│   │   │   ├── 95/
+│   │   │   │   ├── a439b054a23c15b84efe495ec9d35bce112904
+│   │   │   ├── 27/
+│   │   │   │   ├── 23d63fc151ae1743dcae230e922e3dfa3f8fa5
+│   │   │   ├── ad/
+│   │   │   │   ├── 9dba16ccb1d119e792ec0da6ab7fa751a8b0b0
+│   │   │   ├── 7a/
+│   │   │   │   ├── 9ef704f529029d756997e01fe6c63ebe1bbd8f
+│   │   ├── refs/
+│   │   │   ├── heads/
+│   │   │   │   ├── master
+│   │   │   │   ├── remote
+│   │   │   │   ├── master-remote
+│   │   │   ├── tags/
+│   │   │   ├── remotes/
+│   │   │   │   ├── origin/
+│   │   │   │   │   ├── HEAD
+│   │   │   │   │   ├── remote
+│   │   ├── hooks/
+│   │   │   ├── pre-applypatch.sample
+│   │   │   ├── pre-rebase.sample
+│   │   │   ├── push-to-checkout.sample
+│   │   │   ├── pre-push.sample
+│   │   │   ├── pre-merge-commit.sample
+│   │   │   ├── prepare-commit-msg.sample
+│   │   │   ├── applypatch-msg.sample
+│   │   │   ├── post-update.sample
+│   │   │   ├── commit-msg.sample
+│   │   │   ├── pre-receive.sample
+│   │   │   ├── sendemail-validate.sample
+│   │   │   ├── pre-commit.sample
+│   │   │   ├── fsmonitor-watchman.sample
+│   │   │   ├── update.sample
+│   │   ├── info/
+│   │   │   ├── exclude

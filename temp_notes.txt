@@ -1,0 +1,23 @@
+import torch
+import numpy as np
+print(torch.__version__)
+https://huggingface.co/Mozilla/Meta-Llama-3.1-8B-Instruct-llamafile/resolve/main/Meta-Llama-3.1-8B-Instruct.Q8_0.llamafile?download=true
+wget https://huggingface.co/Mozilla/Meta-Llama-3.1-8B-Instruct-llamafile/resolve/main/Meta-Llama-3.1-8B-Instruct.Q8_0.llamafile?download=true
+chmod +x Meta-Llama-3.1-8B-Instruct.Q6_K.llamafile
+./Meta-Llama-3.1-8B-Instruct.Q8_0.llamafile
+
+change to single emitation, with softmax (paper)
+due to in testing training result, issue with threshold, pick up the one with highest
+chang auto to roberta
+metric cutted, need to be remade for single soft
+loss not used here
+?remove dynamic learning rate (skceat learn)
+?search for hyperparameters, sweep. check other works for best hyperparameters
+overfitting, underfitting, indicators to change directon
+shuffle? should train on mix, not pure one type1 type2. do abstract separation after shuffle/split step
+2 abstracts not bug, take both
+change evaluation script, both for LLM and pre-trained
+fin->eng, eng->fin, fin->fin (abonded)
+
+for llm to use gpu pass -ngl 999
+different setting, changing prompt, maybe provide info regarding number of tags in original one entity

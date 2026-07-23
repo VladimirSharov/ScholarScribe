@@ -1,0 +1,31 @@
+{
+  "entities": 53850,
+  "title": {
+    "char_length": {
+      "count": 53850,
+      "min": 4,
+      "max": 367,
+      "avg": 87.77064066852368
+    },
+    "word_length": {
+      "count": 53850,
+      "min": 1,
+      "max": 50,
+      "avg": 9.186889507892293
+    }
+  },
+  "abstract": {
+    "char_length": {
+      "count": 53850,
+      "min": 41,
+      "max": 35143,
+      "avg": 2678.0624141132776
+    },
+    "word_length": {
+      "count": 53850,
+      "min": 4,
+      "max": 5616,
+      "avg": 303.29329619312904
+    }
+  }
+}

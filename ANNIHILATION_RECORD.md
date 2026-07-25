@@ -90,3 +90,94 @@ self-contained subsystem — **nothing in live `boa_strangling/` imports any of 
 
 **Buried:** _pending quiz._ **Kept:** `llm_generate_tags_sv5.py` (for now; the LLM arm itself may be
 retired later — separate decision).
+
+---
+
+### Family: `model_training_GCV_*` — XLM-R fine-tuning trainer (the forge)
+
+**Status: analyzed, awaiting quiz + burial. Keeper = none (superseded whole by
+`boa_strangling/scripts/train.py`).**
+
+The fine-tuning arm of the two-approach design (the twin of the `llm_generate_tags_*`
+LLM arm). All three train `xlm-roberta-base` for multi-label thesis-tag classification
+via HF `Trainer` + wandb, wrapped in the same scaffold (`Config` → `ThesisModelTrainer`
+→ `ThesisMetrics`). **"GCV"** = the old grid/config-driven trainer name. This family is
+literally **the forge that produced the 125 G `model_embedding/` graveyard** — every run
+writes `model_embedding/model_output_{mn,1n}_<timestamp>/` checkpoints + a
+`tag_mapping_*.pickle`. Autopsy this family and the Cycle-3 weights lose their mystery.
+
+**Recovery anchor (IMPORTANT — differs from Cycle 1):** these three live **only** in the
+cleaning-iteration commit `a3c516c`, **not** on `origin/master` (that backup is an older
+snapshot with no `boa_strangling/` and no root trainer). Recover with
+`git show a3c516c:model_training_GCV_3.py`, **not** from `origin/master`.
+
+| File | Real date | Role | Loss / labels | Text field | Data source |
+|---|---|---|---|---|---|
+| `GCV_2` | 2025-02-27 | base multi-label trainer | BCE, **correct multi-hot** (1.0) | `title[0]` + first abstract | `data_split_v4/full_dataset_v3_*` |
+| `GCV_singleSoft` | 2025-02-28 | soft-label CE experiment | **CE, soft targets** (1/k distribution) | `title[0]` + first abstract | `data_split_v4/full_dataset_v3_*` |
+| `GCV_3` | **2025-05-21 (latest)** | boa-migrated trainer | BCE, **labels REGRESSED to index lists** | `clean_full_text` | `boa_strangling/data/data_split_fi_eng_min5_abs40/` |
+
+**What each tried / distinguishing technique:**
+
+- **`GCV_2`** — the baseline that got the fundamentals *right*: `AutoModelForSequenceClassification`
+  with `problem_type="multi_label_classification"` (→ `BCEWithLogitsLoss`), labels built as a
+  proper **multi-hot** matrix (`np.zeros((n, |tags|))`, set 1.0). Computes tag vocab on the fly
+  from the train split (`tag2id`), saves it as pickle. `ThesisMetrics`: macro P/R/F1 at a fixed
+  0.5 threshold + a hand-rolled normalized TN/FP/FN/TP confusion matrix. Fixed threshold and
+  on-the-fly vocab are its two weaknesses (both fixed downstream), but the label encoding is sound.
+- **`GCV_singleSoft`** — the experimental fork (the interesting one). **Pastes the entire
+  `XLMRobertaForSequenceClassification` source** into the file (via `from ...modeling_xlm_roberta
+  import *` + a redefined class) purely to sit inside the loss branch and inspect it (commented
+  `print(labels)` probes). Sets `problem_type="single_label_classification"` (→ `CrossEntropyLoss`)
+  but feeds it **soft targets**: `multi_hot[i][label] = 1.0/len(label_list)` — a probability
+  *distribution* over the true tags summing to 1, instead of a hard multi-hot. The hypothesis:
+  treat multi-label as "spread unit probability mass across the correct tags" and let CE match the
+  distribution — a soft-label knowledge-distillation-style trick against the sparsity/imbalance that
+  plain BCE struggled with. Metrics disabled; lr dropped 2e-5 → 1e-5. Distinctive technique worth
+  keeping: **soft label distribution (1/k) + CE** as an alternative to multi-hot + BCE.
+- **`GCV_3`** — the last iteration; the only one migrated onto the **boa_strangling** data layout.
+  Two genuine *improvements*: (a) loads `tag2id` from an **external `tag_vocab.json`** instead of
+  recomputing per-run (kills train/val/test vocab drift), and (b) `lr_scheduler_type="constant"`.
+  But it carries the **two documented regressions** (see `ROADMAP.md` §0.2/§3.1):
+  1. **Label-binarization bug** — labels built as **ragged index lists** (`valid_tags =
+     [tag2id[t] ...]`, `tokenized_inputs["labels"] = labels`), *not* a multi-hot matrix. With
+     `multi_label_classification`/BCE this is wrong shape/semantics — a regression from `GCV_2`,
+     which had it right. Worse, the empty-example fallback `valid_tags = [0]` stamps on **real tag
+     id 0**, silently poisoning every tag-less row instead of leaving an all-zero target.
+  2. **`clean_full_text` field** — tokenizes `examples["clean_full_text"]`, abandoning the explicit
+     `title[0] + first-abstract` construction for a precomputed text column flagged as stale/bug-prone.
+
+**Chronology irony (thesis-worthy):** version number tracks neither time nor quality here either —
+`GCV_3` is newest yet *regressed* the one thing `GCV_2` got right (multi-hot labels). Progress on
+plumbing (external vocab, boa data, constant LR) masked a correctness regression in the core target
+encoding. This is the concrete origin of the "GCV has a label-binarization bug" warning in the docs.
+
+**Pipeline position:** the fine-tuning training stage. Input = a `*_train/val/test.json` split
+(old `data_split_v4/` for GCV_2/singleSoft; `boa_strangling/data/data_split_fi_eng_min5_abs40/`
+for GCV_3). Output = `model_embedding/model_output_*/` checkpoints + `tag_mapping_*.pickle`
+(→ the Cycle-3 weight graveyard) + wandb runs under project `thesis-tagger`. Consumed downstream
+by the old evaluation/prediction scripts. **Nothing in live `boa_strangling/` imports any of them.**
+
+**Where the capability went — `boa_strangling/scripts/train.py` (keeper) does it right:**
+- labels via `MultiLabelBinarizer` → true multi-hot, fed as `torch.FloatTensor` (fixes bug 1);
+  the tag field is `tags` (not `combined_tags`/`clean_full_text`) (fixes bug 2);
+- per-class **`pos_weight` BCE** (`sqrt(log1p(neg/pos))`) instead of unweighted BCE — for rare tags;
+- **per-frequency-bucket adaptive thresholds** instead of a fixed 0.5;
+- stratified recall by frequency bucket + subset accuracy. GCV's fixed-0.5 + on-the-fly-vocab +
+  regressed labels are all superseded. (The `singleSoft` soft-CE idea was *not* carried forward —
+  it's the one genuinely novel thread that dies with this family; preserved here as a record.)
+
+**Distinguishing techniques worth preserving (thesis material):**
+- soft label distribution (1/k) + CrossEntropy as an alt to multi-hot + BCE (`singleSoft`)
+- pasting-the-model-class to instrument the loss branch — a debugging move, not production
+- externalizing `tag_vocab.json` so splits share one label space (`GCV_3`'s one good idea)
+- normalized TN/FP/FN/TP confusion at eval time (`ThesisMetrics`)
+
+**Latent blunders carried by the family (see quiz):**
+1. **Label-binarization regression** in `GCV_3` (index lists, not multi-hot; `[0]` poison fallback).
+2. **`title[0]` + `abstract[0]`** in GCV_2/singleSoft — same first-abstract-only betrayal as the LLM
+   family; the "two abstracts = two records" augmentation decision throws the rest away.
+3. **Fixed 0.5 threshold** for a long-tailed multi-label problem — guarantees rare tags never fire.
+4. **On-the-fly vocab** (GCV_2/singleSoft) → the label space can drift between train and eval runs.
+
+**Buried:** _pending quiz._ **Kept:** none — superseded whole by `boa_strangling/scripts/train.py`.

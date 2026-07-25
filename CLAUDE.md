@@ -30,19 +30,42 @@ Code → `git rm` (recoverable from history *for now*); weights → plain `rm` (
 provenance recorded first.
 
 **Progress:**
-- Cycle 1 **done & cleared**: `llm_generate_tags` family — bury
-  `zdepricated_versions/llm_generate_tags_sv2/sv3/sv4.py`, keep root `llm_generate_tags_sv5.py`.
-  (User given the `git rm` commands; may not have run them yet.)
-- Next candidates: `model_training_GCV_*` family (carries the label-binarization +
-  `clean_full_text` bugs) and the 125 G `model_embedding/` old checkpoints (biggest disk win).
+- Cycle 1 **done & cleared**: `llm_generate_tags` family — `sv2/sv3/sv4` buried
+  (folded into the `cleaning iteration` commit; recover from `origin/master` if ever needed),
+  root `llm_generate_tags_sv5.py` kept. Reckoning recorded in `PAST_CLEARNESS.md`.
+- Cycle 2 **analyzed, awaiting final word + burial**: `model_training_GCV_*` family
+  (`GCV_2`, `GCV_singleSoft`, `GCV_3`) — the XLM-R fine-tuning trainer, *the forge* that
+  produced the 125 G `model_embedding/` checkpoints. Autopsy + reckoning written (quiz
+  graded ≈4/5; the `GCV_3` `[0]`-fallback double-fault was the gap). Keeper = none
+  (superseded whole by `boa_strangling/scripts/train.py`). **Recovery anchor = commit
+  `a3c516c`, NOT `origin/master`** — the origin/master backup is an *older* snapshot with
+  no `boa_strangling/` and no root trainer, so it does **not** contain these files.
+  Burial command staged below; user runs it.
+- **Resume here → Cycle 3** (once Cycle 2 is buried): the 125 G `model_embedding/` old
+  checkpoints — biggest disk win, provenance already recorded (they are just GCV run
+  outputs, `mn`=multi-label / `1n`=single-soft, regenerable). Weights → plain `rm`
+  (permanent). User gives the final word.
 
-**Git bloat (open issue):** `.git` is **37 G** — large weights were committed before the
-gitignore fixes; the user's pushes stall on size. Weights are already untracked/gitignored,
-so incremental pushes shouldn't grow. The real fix is a **history flush** (orphan-branch
-reset, or `git filter-repo --strip-blobs-bigger-than 50M`, then force-push + `git gc
---aggressive --prune=all`). **Do this LAST**, only after annihilation is complete and the
-soul is fully captured — flushing history destroys the "recoverable via git" safety net the
-code burials rely on. Do not flush mid-round. No background process from this work is running.
+**Git state (2026-07-23 — push RESOLVED):** the `remote` branch was flushed to a
+**single clean root commit** (`ScholarScribe: cleaning iteration`, `a3c516c`) and
+force-pushed with `--force-with-lease`. GitHub had rejected the earlier push because
+oversized data files (`split*/train.jsonl`, `boa_strangling/data/data_multiuni_*/train.json`,
+each >100 MB) had slipped past `.gitignore` and hit GitHub's 100 MB limit; they are now
+gitignored + `git rm --cached` (kept on disk, out of git). **The old 13-commit pre-cleanup
+history is preserved on `origin/master` / `origin/HEAD`** (tip `001e6d0…`) as a backup —
+nothing is truly lost. Local `.git` is still ~37 G, **deliberately not gc'd** (keeps
+recovery available during the ongoing ritual). No background process from this work is running.
+
+Useful git commands for this repo:
+- **Recover a buried/old file** from the preserved history: `git show origin/master:<path>`
+  or `git checkout origin/master -- <path>`.
+- **Verify nothing >100 MB is tracked** before any push (must print nothing):
+  `git ls-files -z | xargs -0 -I{} sh -c 'test -f "{}" && s=$(stat -c%s "{}") && test "$s" -gt 104857600 && echo "$((s/1048576))MB {}"'`
+- **Never re-add the big data** — gitignored: `split/`, `split_freq3/`, `llama_model/`,
+  `boa_strangling/data/data_multiuni_*/`, `data_collection/output.json`, `Mambaforge-*.sh`.
+- **Final reclaim of the 37 G (LAST rite only** — after annihilation is done and the soul is
+  fully in the two records; this **destroys** local recoverability): drop `master`'s old
+  history too, then `git reflog expire --expire=now --all && git gc --aggressive --prune=all`.
 
 ## Where to look first
 

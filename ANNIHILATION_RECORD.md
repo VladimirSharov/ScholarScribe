@@ -28,6 +28,15 @@ the disk pain is weights.
 | `boa_strangling/outputs/` | 1.4 G | untracked | reclaim after keeper picked |
 | all versioned root `.py` | few MB | **tracked** | git rm + commit (recoverable) |
 
+**Update 2026-07-25 — the 37 G `.git` is already gone.** It measures **239 M** now. The plan
+had been to leave it un-gc'd until the ritual ended (to keep recovery available), but an
+**automatic repack** triggered by the annihilation commits dropped the unreachable pre-flush
+objects, so the reclaim happened as a side effect rather than by the planned last rite.
+**Recoverability is unharmed — verified by reading both anchors:** `a3c516c` (Cycle 2/3) and
+`origin/master` `001e6d0` (Cycle 1) are still readable. The remaining 239 M *is* the preserved
+history. The "last rite" now means only dropping `master`/`master-remote`'s old history — a few
+hundred MB, cosmetic.
+
 ---
 
 ## CODE TRACK
@@ -216,6 +225,125 @@ ignored dir; gitignore never applies to already-tracked files.)
 are the only on-disk products; check/reclaim separately if present.
 
 **Buried:** together with the GCV commit (or a follow-up). **Kept:** none.
+
+---
+
+### Family: `data_preparation/` — the dataset-building arm (7 scripts)
+
+**Status: analyzed, awaiting quiz + burial. Keeper = none (superseded by
+`boa_strangling/scripts/prep_split_dataset.py` + `generate_variants.py`).**
+
+Upstream of *everything* else in the graveyard: this is the family that turned JYX's raw
+DSpace dump into the `full_dataset*.json` / `data_split_v*` files that the GCV trainers
+(Cycle 2) and the LLM arm (Cycle 1) both consumed. Not a version chain — a **pipeline**,
+plus one abandoned side branch.
+
+| File | Real date | Role | Consumes | Produces |
+|---|---|---|---|---|
+| `v3_data_preparation.py` | Dec 2024 | flatten raw `dc.*` records → simplified entities | `data_collection/output.json` | `data_preparation/dataset/full_dataset_v3.json` |
+| `stratify_split_v2.py` | Dec 2024 | faculty-stratified 60/20/20 split | `full_dataset_v3.json` | `data_split_v3/full_dataset_v3_{train,val,test}.json` |
+| `split_abstract_v2.py` | Dec 2024 | **one record per abstract** (the augmentation) | `data_split_v3/*` | `data_split_v4/*` |
+| `data_sew.py` | **Mar 2025 (newest)** | re-concatenate the 3 v4 splits into one corpus | `data_split_v4/*` | `data_split_v4/full_dataset.json` |
+| `field_remover.py` | Nov 2024 | **deletes** `thesis_title` + `abstract` | `tempFieldMod/full_dataset_e.json` | `…_er.json` |
+| `field_processor.py` | Nov 2024 | one-hot / binary-vector feature engineering | `…_er.json` | `…_erp.json` |
+| `scheme_data.py` | Apr 2025 | hand-written schema doc | — | `db_schema.json` |
+
+**The main chain (1→4) and what each contributed:**
+
+- **`v3_data_preparation.py`** — the parser. JYX exports each thesis as a *list of
+  `{key, value, language}` items* (`dc.title`, `dc.subject.yso`, `dc.contributor.tiedekunta`…);
+  this flattens that into a flat entity via a `field_name_mapping` dict — **the origin of the
+  project's field names** (`subject_tags`, `additional_tags`, `thesis_title`, `abstract`,
+  `faculty`, `date_issued`, `identifier`). Also holds `standardize_language_code()`, the
+  2-letter→3-letter ISO 639-2/B map (`fi→fin`, `en→eng`, …) — **the origin of the "3-letter is
+  the target format" decision** still in force. Entities are kept only if *all* requested fields
+  are present (`all(field in entry_copy …)`), which is where the corpus silently shrinks.
+- **`stratify_split_v2.py`** — 60/20/20, **stratified by faculty** (`faculty[0]`), with
+  small-group fallbacks: faculty with 2 members → train/test only, with 1 → train only;
+  faculty-less entities all appended to train.
+- **`split_abstract_v2.py`** — the augmentation step, and the one whose *idea* survives:
+  a thesis with N abstracts becomes N records, each keeping the same title/tags/faculty,
+  each getting a fresh `identifier` (`<orig>_abstract_<idx>_<uuid8>`) plus an
+  `original_identifier` back-pointer. That back-pointer is what still makes it possible to
+  group siblings — it is the reason the finding below could be measured at all.
+- **`data_sew.py`** — the **bridge to `boa_strangling/`**: sews the three `data_split_v4`
+  splits back into a single `full_dataset.json`, i.e. deliberately *undoes* the old split so
+  the new pipeline could re-split the corpus on its own terms
+  (`prep_split_dataset.py` → `data_split_fi_eng_min5_abs40/`). The live
+  `boa_strangling/data/full_dataset.json` is the descendant of this file.
+
+**The side branch (5→6) — the abandoned classical-features path:** `field_remover.py`
+**deletes `thesis_title` and `abstract`**, then `field_processor.py` vectorizes what's left:
+tags → multi-hot (`tags_vector`, with its own `class2id`), faculty → one-hot (behind a
+`FACULTY_DICT` normalizing the 9 JYU faculties FI→EN), language → one-hot, year → int.
+This is a **metadata-features → classifier** design: throw the text away, predict from
+structured fields. It is the exact opposite of the framing the project settled on
+(text → tags), and it died — nothing consumes `tempFieldMod/`. (It's also unrunnable today:
+`OneHotEncoder(sparse=False)` was renamed `sparse_output` in sklearn ≥1.2, `TfidfVectorizer`
+is imported but never used, and `pd.DataFrame(list_of_lists, columns=['faculty'])` breaks on
+any multi-faculty row.)
+
+**Pipeline position:** the head of the old pipeline. `data_collection/output.json` → *this
+family* → `data_split_v4/` → consumed by **both** arms (GCV trainers, `llm_generate_tags_sv*`)
+→ and, via `data_sew.py`, → `boa_strangling/data/full_dataset.json`, still live today.
+
+**Distinguishing techniques worth preserving (thesis material):**
+- **split-after-stratify ordering** — the augmentation runs *after* the train/val/test split,
+  so both language siblings of a thesis land in the same split. Getting this backwards would
+  put near-duplicate records (identical title, identical tags) on both sides of the split and
+  inflate every score. This family got it right; say so in the thesis.
+- `original_identifier` back-pointer surviving augmentation (makes sibling grouping auditable).
+- the `dc.*` → project-field mapping and the ISO 639-2/B normalization — both still in force.
+- small-group split fallbacks (n=2 → no val, n=1 → train) as an honest, if crude, answer to
+  stratifying a long-tailed grouping variable.
+
+**Latent blunders carried by the family (see quiz):**
+1. **The `abstract_language` collapse — verified, and the most consequential.** Two faults
+   compound: (a) `v3_data_preparation.py` assigns `simplified_entry['abstract_language']`
+   **inside the per-item loop**, so with several abstracts each assignment overwrites the
+   previous — only the **last** abstract's language survives — and it is a **scalar string**;
+   (b) `split_abstract_v2.py` *does* contain the code to give each sibling its own language,
+   but guards it with `isinstance(entity["abstract_language"], list)` — always False against a
+   string, so it is **dead code**. Measured in `data_split_v4/full_dataset_v3_test.json`:
+   **383 of 383** multi-abstract theses have the *identical* `abstract_language` on every
+   sibling (380 of them stamped `eng`), while **382 of 383** sibling pairs are genuinely
+   different texts. So roughly half of all augmented records carried a **wrong language label**.
+   This is the concrete origin of the later language-detection work (`detect_lang_utils.py`,
+   `language_analysis.py`) and of the Cycle-1 recollection that "the abstract's language wasn't
+   in the original parse". **Already fixed downstream**: live
+   `boa_strangling/data/full_dataset.json` has *distinct* sibling languages in 1966 of 1970
+   cases. Worth knowing anyway, because `prep_split_dataset.py` still filters on exactly this
+   field (`filter_language`) — a silent regression here would silently halve the corpus.
+2. **Non-reproducible split.** `stratify_split_v2.py` calls `random.shuffle(data)` **unseeded**
+   before splitting, while passing `random_state=42` to `train_test_split`. The seed is
+   theatre: every run yields a different split. A plausible contributor to the `data_split_v*`
+   sprawl — a split you cannot regenerate can only be versioned.
+3. **Stratified by the wrong variable.** Faculty is a proxy; for a text→tags task the quantity
+   with the punishing distribution is the **tag long tail**, which is not stratified at all —
+   rare tags can land entirely in one split. Compounding it: faculty-less entities are *all*
+   appended to train, and single-member faculties always go to train, so train absorbs every
+   irregular case.
+4. **Reporting theatre.** `language_counter` is constructed and written into
+   `processing_metadata.json` but **never incremented** (`language_distribution` is always
+   `{}`); `missing_lang_entries` is never used; `deprecated_entries` is incremented inside the
+   per-output-file loop, so it counts once per configured dataset rather than once per entry.
+   A metadata log that cannot be trusted is worse than none.
+
+**Where the capability went:** `boa_strangling/scripts/prep_split_dataset.py` (seeded
+`SEED = 42` throughout, explicit `MIN_TAG_FREQ`/`MIN_ABSTRACT_WORDS`/`VALID_LANGUAGES`
+filters, a written `split_report.json`) + `generate_variants.py`. The augmentation *concept*
+is carried forward explicitly — `boa_strangling/scripts/align_tampere_schema.py` cites
+"`split_abstract_v2.py` augmentation strategy — intentional, not deduped away" in its docstring.
+
+**Dangling reference to fix at burial:** `boa_strangling/main.py:107` and `:116` print
+instructions to run `data_preparation/v3_data_preparation.py`. Narrative only (no import),
+but it will point at a non-existent file after the burial — update those two lines in the
+same commit.
+
+**Recovery anchor:** on `origin/master` **and** `a3c516c` (this family predates the cleanup,
+so both work): `git show origin/master:data_preparation/split_abstract_v2.py`.
+
+**Buried:** 2026-07-25, all 7 files. **Kept:** none.
 
 ---
 

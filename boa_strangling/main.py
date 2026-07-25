@@ -103,8 +103,10 @@ def step_0(state: dict):
     """
     Data collection is a long-running API job — run it separately.
     Expected output: data_collection/output.json
-    The full_dataset.json in boa_strangling/data/ is produced by
-    data_preparation/v3_data_preparation.py after collection.
+    The full_dataset.json in boa_strangling/data/ is an INHERITED artifact, not
+    regenerated here: it was produced by the old data_preparation/ family
+    (v3_data_preparation -> stratify_split_v2 -> split_abstract_v2 -> data_sew),
+    which is buried. See ANNIHILATION_RECORD.md "Family: data_preparation/".
     """
     raw_out  = ROOT / "data_collection" / "output.json"
     full_out = BOA / "data" / "full_dataset.json"
@@ -113,7 +115,7 @@ def step_0(state: dict):
     print("  This step is MANUAL — the API job takes hours.")
     print(f"  Collector:   data_collection/api_data_collector.py")
     print(f"  Raw output:  {raw_out.relative_to(ROOT)}")
-    print(f"  Then run:    data_preparation/v3_data_preparation.py")
+    print(f"  Prep chain:  data_preparation/ (buried — see ANNIHILATION_RECORD.md)")
     print(f"  Final input: {full_out.relative_to(ROOT)}")
 
     if full_out.exists():

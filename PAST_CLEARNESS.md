@@ -157,3 +157,132 @@ against `prep_split_dataset.py` before it goes in the thesis; `abs40` = min abst
 recorded). `GCV_2 / GCV_singleSoft / GCV_3` cleared for burial; keeper = none (superseded
 whole by `boa_strangling/scripts/train.py`). The Cycle-3 weight reclaim is now pre-justified.
 
+---
+
+## Cycle 5 — `data_preparation/` family (7 scripts, the dataset-building arm)
+
+**Dependency check:** no import anywhere in `boa_strangling/`. Three *textual* mentions only:
+`boa_strangling/main.py:107` and `:116` print "then run `data_preparation/v3_data_preparation.py`"
+(narrative instructions — will dangle after burial, fix in the same commit), and
+`align_tampere_schema.py:6` cites `split_abstract_v2.py` in a docstring as the augmentation
+precedent (a *reference to the idea*, not to the file — fine to leave). Recovery anchor:
+**both** `origin/master` and `a3c516c` (this family predates the cleanup). → safe.
+
+**Quiz (answer in chat; I'll grade + record):**
+
+1. **The one you got right — defend it.** The chain runs
+   `stratify_split_v2` (train/val/test) **then** `split_abstract_v2` (one record per abstract).
+   Suppose you had run them the other way round — split the abstracts first, then do the
+   60/20/20. What exactly goes wrong, and why would your reported test scores have *looked
+   better* because of it?
+
+2. **The verified blunder.** `split_abstract_v2.py` contains an explicit line meant to give
+   each split sibling its own abstract language. In the actual `data_split_v4` output, all
+   383 multi-abstract theses have the *same* language on every sibling — and 380 of them say
+   `eng`. Two separate faults, one in each script, combine to cause this. Name both. (Hint:
+   one is about *where an assignment sits in a loop*, the other about a **type** — and once you
+   see the type, you'll see why the "fix" in `split_abstract_v2` never executed even once.)
+   Bonus: which two later scripts exist *because of* this bug?
+
+3. `stratify_split_v2.py` passes `random_state=42` to every `train_test_split` call, and is
+   nevertheless **not reproducible** — run it twice, get two different splits. Why? And what
+   does that explain about the number of `data_split_v*` directories in this repo?
+
+4. The split is stratified **by faculty**. For a title+abstract → tags task, what is the
+   variable you'd actually want stratified, and what does leaving it unstratified do to the
+   long tail? Second half: three kinds of entity always end up in **train** regardless of the
+   ratios — name them and say what bias that puts in the training set.
+
+5. **The confession.** `field_remover.py` deletes `thesis_title` and `abstract`, and then
+   `field_processor.py` turns what remains — faculty, language, year, tags — into one-hot and
+   binary vectors. What were you building, what would it have predicted from what, and why do
+   you think it was abandoned? (This is the branch that dies here; it's the road-not-taken
+   worth one paragraph in the thesis.)
+
+6. **Connect the dots (the safe-deletion sentence).** `data_sew.py` takes the three
+   `data_split_v4` files and glues them back into one `full_dataset.json` — it *undoes* the
+   split this same family just performed. Why would you deliberately do that, and what is the
+   live file `boa_strangling/data/full_dataset.json` in terms of this family?
+
+**Reckoning (2026-07-25) — user's answers + resolution. Grade ≈ 3.5/6, plus three pieces of
+provenance that aren't in the code.**
+
+*Extra provenance the user supplied (recorded — not recoverable from the files):*
+- **Why the abstract split exists at all:** some theses carried 2+ abstracts, typically one
+  **fin** and one **eng**. Splitting was the response to that, not a generic augmentation idea.
+- **Why fin+eng only:** the other languages were **under ~10 % of the corpus and "akin noise"**,
+  so they were dropped deliberately. (This is the origin of `VALID_LANGUAGES = {"fin","eng"}` at
+  `boa_strangling/scripts/prep_split_dataset.py:11` — the filter is a *decision*, not a default.)
+- **Why the ratios are 60/20/20:** an **8/1/1 split was tried first and abandoned — not enough
+  samples**. That is the reason for the small-group fallback ladder at
+  `data_preparation/stratify_split_v2.py:56-68` (n>2 normal, n==2 → train/test only, n==1 → train).
+
+1. **Order / leakage — unanswered; filling it.** The chain is stratify *then* split-abstract, and
+   that is the **right** order. Reversed, the fin and eng records of one thesis — **identical
+   title, identical tags, identical faculty** — could land on opposite sides of the split. The
+   model would then be scored on test rows whose labels it had already memorised from their
+   twins in train, and **test scores would rise for a reason that has nothing to do with
+   generalisation**. Same-thesis siblings must stay on the same side; this family enforced it.
+
+2. **The `abstract_language` collapse — partially answered, and the user supplied the
+   corroborating fact.** The user recalled *"first is usually fin, second eng if two abstracts"*.
+   **Verified against `data_split_v4/full_dataset_v3_test.json`: 374 of 383 multi-abstract theses
+   are (fin, eng) in index order** — and that is exactly why **380 of 383** are stamped `eng`.
+   The two faults, named:
+   (a) `data_preparation/v3_data_preparation.py:56-59` — the `abstract_language` assignment sits
+   **inside the per-item loop**, so with several abstracts each one overwrites the last; only the
+   **final** abstract's language survives, as a **scalar string**;
+   (b) `data_preparation/split_abstract_v2.py:59-60` — the per-sibling language fix is guarded by
+   `isinstance(entity["abstract_language"], list)`, which is **never true against a string**, so
+   the fix is **dead code that never executed once**.
+   The user's other half — *"I either used a script to detect language or went back to
+   Theseus/Trepo to aggregate it"* — is the **repair**, and it worked: live
+   `boa_strangling/data/full_dataset.json` now has distinct sibling languages in **1966 of 1970**
+   cases. The two scripts that exist because of this bug: `detect_lang_utils.py` and
+   `language_analysis.py` (both at repo root, both still awaiting their own cycle).
+
+3. **Reproducibility — half.** *"Maybe I edited the seed or generated without it?"* — right
+   instinct, exact cause: `data_preparation/stratify_split_v2.py:25` calls
+   **`random.shuffle(data)` with no seed** before splitting, while every `train_test_split` below
+   it passes `random_state=42`. The seed is theatre — the shuffle upstream of it is random every
+   run, so the split cannot be regenerated. **A split you cannot reproduce can only be
+   *versioned*** — which is a large part of why this repo has `data_split/`, `data_split_v4/`,
+   `data_split_v6/`, `split/`, `split_freq3/`.
+
+4. **Stratification — correct intent, one correction.** *"I want to stratify by tags"* — that is
+   the right target: for text→tags the punishing distribution is the **tag long tail**, and
+   faculty is only a proxy for it. The correction: *"too rare tags get only in train"* is not
+   quite the failure mode — with no tag stratification a rare tag lands in **whichever split the
+   shuffle happens to put it in**, so it can end up **only in test**, where it is unlearnable and
+   scores a guaranteed zero. The three kinds of row that *do* always go to train, by construction:
+   **faculty-less entities** (`stratify_split_v2.py:76-79`), **single-member faculties**
+   (`:64-68`), and **the first 60 % of every faculty**. Train therefore absorbs every irregular
+   case, and val/test are systematically *cleaner* than the data the model will meet in reality.
+
+5. **The dead branch — user's reading accepted over mine.** The user suspects it was
+   *"trends analysis / finding dependencies between such fields"*. That fits the evidence better
+   than my "classical-features classifier" hypothesis: `field_remover.py:25` deletes
+   **`thesis_title` and `abstract`** — the only inputs a tag classifier could use — leaving
+   faculty/language/year/tags, which `field_processor.py:22-101` turns into aligned vectors
+   (`tags_vector`, `faculty_vector`, `language_vector`, `year`). Vectorising *labels alongside
+   metadata* is the shape of a **correlation/association study** ("which faculties co-occur with
+   which tags, how does that drift by year"), not of a predictive model — as features for tag
+   prediction the `tags_vector` would be pure label leakage. Recorded as: **an exploratory
+   metadata-analysis branch, abandoned**; nothing consumes `tempFieldMod/`. (It is also
+   unrunnable today — `OneHotEncoder(sparse=False)` was renamed `sparse_output` in sklearn ≥1.2.)
+
+6. **`data_sew.py` — ✓✓, both halves right, and the second is the sharper one.** The user gave
+   (a) *"statistics for the full dataset were hard to do per-split, so I glued it back"* and
+   (b) *"maybe to run the whole thing through llama"*. Both hold, and **(b) is the principled
+   one: the LLM arm is zero-shot — it is never trained, so a train/val/test split is meaningless
+   to it.** `llm_generate_tags_sv*` needs *the corpus*, not a split; `data_sew.py:12` reassembles
+   exactly that. **The safe-deletion sentence:** *the live
+   `boa_strangling/data/full_dataset.json` is the direct descendant of `data_sew.py`'s output —
+   the old pipeline's corpus, re-glued so the new pipeline (`prep_split_dataset.py`) could
+   re-split it on its own seeded terms; the data survives, so only the scripts die.*
+
+**Verdict:** understanding verified. The blind spots (Q1 leakage rationale, Q3 exact cause,
+Q4 always-train bias) are now recorded above; Q2's diagnosis was *confirmed* by the user's own
+recollection of fin-then-eng ordering. `data_preparation/` cleared for burial pending the
+user's final word; keeper = none.
+

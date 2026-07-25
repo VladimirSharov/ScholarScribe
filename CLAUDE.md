@@ -7,6 +7,16 @@ Core task framing: **text (title+abstract) → tags**. The abstract is treated a
 dominant training signal (long, information-dense), which shapes some pipeline
 choices below — read the note on abstract splitting before "fixing" it.
 
+**How to use this file (convention — keep it):** `CLAUDE.md` is *orientation*: the general
+idea plus **pointers to the file that holds the detail**. It is loaded into every session, so
+done-work reports, reckonings and incident narratives do **not** belong here — they go in
+their dedicated file (`ANNIHILATION_RECORD.md`, `PAST_CLEARNESS.md`, `THESIS_LOG.md`,
+`ROADMAP.md`). Progress belongs here only as a compact table or one-line pointer.
+
+**Second convention — don't make the user hunt.** When answering, cite exact
+`path/to/file.py:LINE` (clickable in the terminal / VS Code), never "look in X" or "search
+for Y". The user should never have to grep this repo to follow an answer.
+
 ## ACTIVE: Annihilation round (started 2026-07-23)
 
 **What the user is doing here:** deliberately deleting the entire old graveyard
@@ -38,7 +48,7 @@ this table is just the pointer; don't re-narrate reckonings here):
 | 2 | `model_training_GCV_*` (the trainer / forge of `model_embedding/`) | buried & cleared (commit `7bf0292`) | none |
 | 3 | `model_embedding/` 125 G weights + 4 alt-encoder scripts (DeBERTa/SPECTER2) inside it | buried & cleared (commit `53adaab`; weights `rm`'d) | none |
 | 4 | `llama_model/` 8.3 G (Llama 3.1 8B llamafile) | **KEPT** — still works; user chose not to delete (`main.log` error was a one-off reload incompat). Provenance in record. | llamafile |
-| 5 | `data_preparation/` (7 scripts — the dataset-building arm) | **active** | tbd |
+| 5 | `data_preparation/` (7 scripts — the dataset-building arm) | buried & cleared | none |
 | next | `data_validation/tag_evaluation_v*` · `zdepricated_versions/` · `images/` + faculty arm · root loose `.py` + artifacts | queued | — |
 | last | `.git` final reclaim (last rite) | **mostly moot** — see git state below | — |
 
@@ -54,15 +64,9 @@ oversized data files (`split*/train.jsonl`, `boa_strangling/data/data_multiuni_*
 each >100 MB) had slipped past `.gitignore` and hit GitHub's 100 MB limit; they are now
 gitignored + `git rm --cached` (kept on disk, out of git). **The old 13-commit pre-cleanup
 history is preserved on `origin/master` / `origin/HEAD`** (tip `001e6d0…`) as a backup —
-nothing is truly lost.
-
-**`.git` is now 239 M, down from ~37 G (measured 2026-07-25).** The plan had been to leave it
-un-gc'd until the ritual ended, but an **automatic repack** after the annihilation commits
-dropped the unreachable pre-flush objects — so the 37 G was reclaimed as a side effect, not by
-the planned last rite. **Recoverability is unharmed and was verified:** `a3c516c` (Cycle 2/3
-anchor) and `origin/master` (`001e6d0`, Cycle 1 anchor) are both still readable. The remaining
-239 M *is* the preserved history. The "last rite" now only means dropping `master`'s old history
-— a few hundred MB, cosmetic. No background process from this work is running.
+nothing is truly lost. **`.git` is now 239 M, not the ~37 G quoted earlier** — an auto-repack
+already reclaimed it; recoverability verified intact. Detail in `ANNIHILATION_RECORD.md`
+§"Disk snapshot". No background process from this work is running.
 
 Useful git commands for this repo:
 - **Recover a buried/old file** from the preserved history: `git show origin/master:<path>`

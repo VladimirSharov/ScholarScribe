@@ -12,8 +12,8 @@ choices below — read the note on abstract splitting before "fixing" it.
 **What the user is doing here:** deliberately deleting the entire old graveyard
 *outside* `boa_strangling/` — the loose root `.py` scripts, the old top-level code
 dirs (`data_preparation/`, `data_validation/`, `images/`, `zdepricated_versions/`,
-etc.), and ~174 G of dead weights (`model_embedding/` 125 G, `llama_model/` 8.3 G,
-misc) — keeping **only the distilled knowledge, not the bodies**. The live pipeline
+etc.), and ~125 G of dead weights (`model_embedding/`; `llama_model/` 8.3 G was
+assessed and **kept**) — keeping **only the distilled knowledge, not the bodies**. The live pipeline
 (`boa_strangling/`) is self-contained and imports nothing from the graveyard (verified),
 so removal is safe. Two surviving artifacts at repo root:
 - **`ANNIHILATION_RECORD.md`** — autopsy/inventory of each dead family: what it was,
@@ -36,8 +36,11 @@ this table is just the pointer; don't re-narrate reckonings here):
 |---|---|---|---|
 | 1 | `llm_generate_tags_sv*` | buried & cleared | `sv5` |
 | 2 | `model_training_GCV_*` (the trainer / forge of `model_embedding/`) | buried & cleared (commit `7bf0292`) | none |
-| 3 | `model_embedding/` 125 G weights + 4 alt-encoder scripts (DeBERTa/SPECTER2) inside it | weights **reclaimed** (`rm`); scripts recorded, **awaiting burial commit** | none |
-| next | `llama_model/` 8.3 G · then `.git` 37 G final reclaim | queued | — |
+| 3 | `model_embedding/` 125 G weights + 4 alt-encoder scripts (DeBERTa/SPECTER2) inside it | buried & cleared (commit `53adaab`; weights `rm`'d) | none |
+| 4 | `llama_model/` 8.3 G (Llama 3.1 8B llamafile) | **KEPT** — still works; user chose not to delete (`main.log` error was a one-off reload incompat). Provenance in record. | llamafile |
+| 5 | `data_preparation/` (7 scripts — the dataset-building arm) | **active** | tbd |
+| next | `data_validation/tag_evaluation_v*` · `zdepricated_versions/` · `images/` + faculty arm · root loose `.py` + artifacts | queued | — |
+| last | `.git` final reclaim (last rite) | **mostly moot** — see git state below | — |
 
 **Recovery anchors differ by cycle** — the one non-obvious gotcha: Cycle-1 files are on
 `origin/master`; **Cycle-2 GCV files are NOT** — they exist only in commit `a3c516c`
@@ -51,8 +54,15 @@ oversized data files (`split*/train.jsonl`, `boa_strangling/data/data_multiuni_*
 each >100 MB) had slipped past `.gitignore` and hit GitHub's 100 MB limit; they are now
 gitignored + `git rm --cached` (kept on disk, out of git). **The old 13-commit pre-cleanup
 history is preserved on `origin/master` / `origin/HEAD`** (tip `001e6d0…`) as a backup —
-nothing is truly lost. Local `.git` is still ~37 G, **deliberately not gc'd** (keeps
-recovery available during the ongoing ritual). No background process from this work is running.
+nothing is truly lost.
+
+**`.git` is now 239 M, down from ~37 G (measured 2026-07-25).** The plan had been to leave it
+un-gc'd until the ritual ended, but an **automatic repack** after the annihilation commits
+dropped the unreachable pre-flush objects — so the 37 G was reclaimed as a side effect, not by
+the planned last rite. **Recoverability is unharmed and was verified:** `a3c516c` (Cycle 2/3
+anchor) and `origin/master` (`001e6d0`, Cycle 1 anchor) are both still readable. The remaining
+239 M *is* the preserved history. The "last rite" now only means dropping `master`'s old history
+— a few hundred MB, cosmetic. No background process from this work is running.
 
 Useful git commands for this repo:
 - **Recover a buried/old file** from the preserved history: `git show origin/master:<path>`
@@ -61,9 +71,10 @@ Useful git commands for this repo:
   `git ls-files -z | xargs -0 -I{} sh -c 'test -f "{}" && s=$(stat -c%s "{}") && test "$s" -gt 104857600 && echo "$((s/1048576))MB {}"'`
 - **Never re-add the big data** — gitignored: `split/`, `split_freq3/`, `llama_model/`,
   `boa_strangling/data/data_multiuni_*/`, `data_collection/output.json`, `Mambaforge-*.sh`.
-- **Final reclaim of the 37 G (LAST rite only** — after annihilation is done and the soul is
-  fully in the two records; this **destroys** local recoverability): drop `master`'s old
+- **Final reclaim (LAST rite only** — after annihilation is done and the soul is fully in the
+  two records; this **destroys** local recoverability): drop `master`/`master-remote`'s old
   history too, then `git reflog expire --expire=now --all && git gc --aggressive --prune=all`.
+  Now worth only a few hundred MB — the 37 G already went in the auto-repack.
 
 ## Where to look first
 

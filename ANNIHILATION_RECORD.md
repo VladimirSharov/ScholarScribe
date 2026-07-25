@@ -216,3 +216,37 @@ ignored dir; gitignore never applies to already-tracked files.)
 are the only on-disk products; check/reclaim separately if present.
 
 **Buried:** together with the GCV commit (or a follow-up). **Kept:** none.
+
+---
+
+## WEIGHTS LEDGER (untracked — record is the only surviving trace)
+
+### `model_embedding/` — 125 G — **reclaimed 2026-07-25**
+The checkpoint + `tag_mapping.pickle` output of the `model_training_GCV_*` runs
+(`model_output_mn_*` = multi-label, `model_output_1n_*` = single-soft/"flattened"), plus a
+`tokenized_datasets/` cache. No idea lives here that isn't in the GCV autopsy above;
+regenerable from `boa_strangling/scripts/train.py` + data. Permanent `rm`. (Also held 4
+tracked alt-encoder scripts — see sub-family entry.)
+
+### `llama_model/` — 8.3 G — **KEPT (2026-07-25, user decision — still works)**
+- `Meta-Llama-3.1-8B-Instruct.Q8_0.llamafile` (8.7 G, Oct 2024) — the local LLM the
+  `llm_generate_tags_sv*` family (Cycle 1) queried at `http://localhost:8080/v1`. A Mozilla
+  **llamafile** (self-contained executable + Q8_0 GGUF weights), **downloaded, not trained →
+  re-downloadable**. **It worked** and produced the LLM arm's real output — the generated-tag
+  files at repo root (`generated_tags_results*.json`) and `model_outputs/`
+  (`tag_generation_results_2024120*.json`, `llama-3-1-10b_tag_generation_results_*`). The later
+  `main.log` failure (`wrong number of tensors; expected 292, got 291 → failed to load model`)
+  is a **llama.cpp / GGUF version incompatibility on a *reload*** — a newer runtime couldn't
+  load this old binary — **not** "never ran". Deleting the binary loses nothing: it's
+  re-downloadable and its actual product (the tag files, kept outside this dir) is preserved.
+  **User chose to KEEP it — it still works normally** (the `main.log` error was a one-off reload
+  under a newer runtime, not a permanent break). *(Never launched during this cleanup —
+  read-only throughout; running an 8 B LLM consumes shared GPU and is not done without checking
+  `nvidia-smi` first.)*
+- `llama_model/split/` (120 M) — **NOT weights**: a stray **min-freq-5 dataset split**
+  (81,738 records, 8,728 labels, avg 4.64 tags/row; `train/val/test.jsonl` +
+  `label_encoder.json` + `split_report.json`), misplaced inside the model dir on Jul 16.
+  Its `split_report.json` is **parameter-identical to root `split/`** (same 81,738 records,
+  8,728 labels, freq bands, 4.64 avg) — the *same* min-freq-5 split, just a leaner export
+  (77 M vs root's 180 M train; same records, fewer fields). Root `split/` is the fuller kept
+  copy → this one is **redundant, safe to delete** with the weights.

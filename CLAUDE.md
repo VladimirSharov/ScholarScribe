@@ -29,22 +29,20 @@ shape); the user answers and gives the **final word**; only then is it deleted.
 Code → `git rm` (recoverable from history *for now*); weights → plain `rm` (permanent),
 provenance recorded first.
 
-**Progress:**
-- Cycle 1 **done & cleared**: `llm_generate_tags` family — `sv2/sv3/sv4` buried
-  (folded into the `cleaning iteration` commit; recover from `origin/master` if ever needed),
-  root `llm_generate_tags_sv5.py` kept. Reckoning recorded in `PAST_CLEARNESS.md`.
-- Cycle 2 **analyzed, awaiting final word + burial**: `model_training_GCV_*` family
-  (`GCV_2`, `GCV_singleSoft`, `GCV_3`) — the XLM-R fine-tuning trainer, *the forge* that
-  produced the 125 G `model_embedding/` checkpoints. Autopsy + reckoning written (quiz
-  graded ≈4/5; the `GCV_3` `[0]`-fallback double-fault was the gap). Keeper = none
-  (superseded whole by `boa_strangling/scripts/train.py`). **Recovery anchor = commit
-  `a3c516c`, NOT `origin/master`** — the origin/master backup is an *older* snapshot with
-  no `boa_strangling/` and no root trainer, so it does **not** contain these files.
-  Burial command staged below; user runs it.
-- **Resume here → Cycle 3** (once Cycle 2 is buried): the 125 G `model_embedding/` old
-  checkpoints — biggest disk win, provenance already recorded (they are just GCV run
-  outputs, `mn`=multi-label / `1n`=single-soft, regenerable). Weights → plain `rm`
-  (permanent). User gives the final word.
+**Progress** (per-cycle detail lives in `ANNIHILATION_RECORD.md` + `PAST_CLEARNESS.md` —
+this table is just the pointer; don't re-narrate reckonings here):
+
+| Cycle | Target | State | Keeper |
+|---|---|---|---|
+| 1 | `llm_generate_tags_sv*` | buried & cleared | `sv5` |
+| 2 | `model_training_GCV_*` (the trainer / forge of `model_embedding/`) | buried & cleared (commit `7bf0292`) | none |
+| 3 | `model_embedding/` 125 G weights + 4 alt-encoder scripts (DeBERTa/SPECTER2) inside it | weights **reclaimed** (`rm`); scripts recorded, **awaiting burial commit** | none |
+| next | `llama_model/` 8.3 G · then `.git` 37 G final reclaim | queued | — |
+
+**Recovery anchors differ by cycle** — the one non-obvious gotcha: Cycle-1 files are on
+`origin/master`; **Cycle-2 GCV files are NOT** — they exist only in commit `a3c516c`
+(`origin/master` is an older snapshot predating `boa_strangling/`). Weights (Cycle 3+) are
+untracked → plain `rm`, permanent. Resume at the first non-buried row.
 
 **Git state (2026-07-23 — push RESOLVED):** the `remote` branch was flushed to a
 **single clean root commit** (`ScholarScribe: cleaning iteration`, `a3c516c`) and

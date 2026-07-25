@@ -181,3 +181,38 @@ by the old evaluation/prediction scripts. **Nothing in live `boa_strangling/` im
 4. **On-the-fly vocab** (GCV_2/singleSoft) → the label space can drift between train and eval runs.
 
 **Buried:** _pending quiz._ **Kept:** none — superseded whole by `boa_strangling/scripts/train.py`.
+
+---
+
+### Sub-family: alternate encoders (DeBERTa / SPECTER2) — 4 scripts inside `model_embedding/`
+
+**Status: read, recorded, deleted.** Not a full ritual cycle — these 4 tracked `.py` files
+lived *inside* `model_embedding/` and were caught when the 125 G weight dir was `rm`'d. User
+did not recall using them; recorded here as ideas, then buried. (This is why
+`git check-ignore model_embedding/` returned nothing earlier — tracked files under an
+ignored dir; gitignore never applies to already-tracked files.)
+
+| File | What it really is | Used on thesis data? |
+|---|---|---|
+| `deberta_model.py` | Tutorial template: `microsoft/deberta-v3-small` on the HF `knowledgator/events_classification_biotech` set (biotech fields, not theses) | No |
+| `deberta_test.py` | Named "deberta" but loads **`xlm-roberta-base`** — early multi-label prototype on `data_split/full_dataset_*` | Yes (but it's XLM-R) |
+| `specter2_model_Example.py` | allenai SPECTER2 README example, verbatim (sample "BERT"/"Attention" papers) | No |
+| `specter2_model_Small.py` | Real use: SPECTER2 adapter embeds thesis `title+faculty+tags` → saves `embeddings/embedding_F_R.npy` | Yes |
+
+**Two ideas worth preserving (the reason to record before deleting):**
+1. **The multilingual pivot, captured in one file.** `deberta_test.py` is named after DeBERTa
+   but the code has *already switched to XLM-R* — the fossil of the moment English
+   `microsoft/deberta-v3-small` was dropped for multilingual `xlm-roberta-base`. DeBERTa
+   didn't solve the fin+eng problem; it **lost to it**, and XLM-R won for exactly that reason.
+2. **The embedding-extraction approach (what named `model_embedding/`).** `specter2_model_Small.py`
+   uses `allenai/specter2` via the `adapters` lib to turn a thesis into a single CLS embedding
+   vector saved as `.npy` — a *features-then-classify / similarity* path, distinct from the
+   end-to-end fine-tuning that GCV/`train.py` took. Note it fed `subject_tags`+`additional_tags`
+   *into* the embedding input — fine for clustering, but would be **label leakage** if ever used
+   as features for tag prediction. The embedding path was not carried forward.
+
+**Recovery anchor:** commit `a3c516c` (same as GCV — `origin/master` predates them).
+**Loose ends (not weights, minor):** `embeddings/*.npy` and `prepared_datasets/faculty_related.json`
+are the only on-disk products; check/reclaim separately if present.
+
+**Buried:** together with the GCV commit (or a follow-up). **Kept:** none.

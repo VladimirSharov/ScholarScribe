@@ -23,9 +23,16 @@ for Y". The user should never have to grep this repo to follow an answer.
 *outside* `boa_strangling/` — the loose root `.py` scripts, the old top-level code
 dirs (`data_preparation/`, `data_validation/`, `images/`, `zdepricated_versions/`,
 etc.), and ~125 G of dead weights (`model_embedding/`; `llama_model/` 8.3 G was
-assessed and **kept**) — keeping **only the distilled knowledge, not the bodies**. The live pipeline
-(`boa_strangling/`) is self-contained and imports nothing from the graveyard (verified),
-so removal is safe. Two surviving artifacts at repo root:
+assessed and **kept**) — keeping **only the distilled knowledge, not the bodies**.
+
+**Safety premise — corrected 2026-07-25, read this before burying anything:** `boa_strangling/`
+imports nothing from the graveyard, but **`main.py` *executes* graveyard scripts as subprocesses**
+— step 4 runs `data_validation/tag_evaluation_v4.py` (`main.py:303-312`, and it `sys.exit(1)`s if
+the file is missing), step 5 runs three scripts from `images/` (`main.py:324-337`, these skip
+gracefully). So "no imports" ≠ "safe to delete". **Check `grep -rn "<name>" boa_strangling/`
+for path strings and `run(...)` calls, not just `import`, before every burial.**
+
+Two surviving artifacts at repo root:
 - **`ANNIHILATION_RECORD.md`** — autopsy/inventory of each dead family: what it was,
   distinguishing technique, pipeline position, what it produced. Includes a disk ledger.
 - **`PAST_CLEARNESS.md`** — the "soul": before each burial the user answers a **quiz**

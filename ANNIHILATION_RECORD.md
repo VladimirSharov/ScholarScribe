@@ -347,6 +347,157 @@ so both work): `git show origin/master:data_preparation/split_abstract_v2.py`.
 
 ---
 
+### Family: `data_validation/` — the evaluation + integrity arm (13 scripts)
+
+**Status: analyzed, awaiting quiz + burial. Keeper = `tag_evaluation_v4.py` — it is
+LOAD-BEARING, see below.**
+
+The missing half of the Cycle-1 LLM arm: `llm_generate_tags_sv*` produced
+`generated_tags_results*.json`, and *this* family scored them. Two unrelated groups share the
+directory — six **evaluators** (Apr–May 2025) and four **JSON integrity checkers** (Nov 2024),
+plus a faculty analyser pair and one weight forensics tool.
+
+**⚠ The one live dependency in the whole graveyard.** `boa_strangling/main.py:303-312` builds
+the path `data_validation/tag_evaluation_v4.py`, **`sys.exit(1)`s if it is missing**, and
+**runs it as a subprocess** — it is Step 4 of the live pipeline. It is not imported, which is
+why the "no imports from the graveyard" check passed and missed it. `tag_evaluation_v4.py`
+**cannot be buried** without first porting Step 4. (`main.py:324-337` likewise runs three
+`images/` scripts, but those skip gracefully when absent — relevant to that queued cycle.)
+
+#### Group A — the evaluators (the LLM arm's scorer)
+
+| File | Real date | Metric added | Tag schema | Reads |
+|---|---|---|---|---|
+| `tag_evaluation.py` | Apr 4 | overlap ratio only | split subject/additional | `generated_tags_results.json` |
+| `tag_evaluation_v2.py` | Apr 11 | same metric, timestamped output dir | **unified `combined_tags`** | same |
+| `tag_evaluation_v3.py` | May 9 | **semantic**: multilingual embeddings + "EMD"; real P/R/F1 | unified | same |
+| `tag_evaluation_v4.py` | May 9 | **string-similarity suite**: Levenshtein, Jaro-Winkler, embeddings, MT-normalised | unified | same |
+| `tag_evaluation_v35.py` | **May 18 (newest)** | **true optimal-transport EMD** (POT) — fixes v3 | unified | `…_union_tags.json` |
+| `tag_evaluation_lang.py` | Apr 22 | per-tag `langdetect` + language confusion matrix | split | `…_union_tags.json` |
+
+**Lineage is a fork, not a line.** v1→v2 is the same schema shift the LLM generators made
+(split `subject`/`additional` → one combined list — the `sv3`/`sv5` change, mirrored here).
+Then it **branches**: **v3 → v3.5** is the *semantic* branch (embed the tags, measure
+distribution distance), **v4** is the *surface-form* branch (edit distance, typo tolerance,
+translate-then-compare). They are siblings, not successors. And **`v35` is dated nine days
+*after* `v4`** — the same version-number-≠-time trap as `sv3`/`sv2` in Cycle 1 and `GCV_3` in
+Cycle 2, for the third time in this repo.
+
+**What each contributed:**
+
+- **`tag_evaluation.py`** (`:6-15`) — the family's one metric: `|A ∩ B| / max(|A|, |B|)`,
+  called "exact match ratio". It is **not** exact match (that would be `A == B`); it is a
+  symmetric overlap coefficient with the *stricter* denominator. Plus a perfect/zero-match
+  count and an 11-bucket score histogram (`:146-177`).
+- **`tag_evaluation_v2.py`** — same maths, but unions `original_subject_tags +
+  original_additional_tags` into one set (`:50`) and writes to `tag_evaluation_<timestamp>/`.
+  This file is the origin of the field name **`combined_tags`** that the docs still carry.
+- **`tag_evaluation_v3.py`** — the leap: `SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')`
+  embeds the tags, so *"koulu"* and *"school"* can count as near-matches — the first
+  acknowledgement that a bilingual tag space cannot be scored by string equality. Adds honest
+  **precision / recall / F1** (`:106-108`), a per-language EMD plot, and a **token-level
+  diagnostic** (`analyze_tag_tokens`, `:192-235`) listing the top-20 gold tags the model never
+  produced and the top-20 tags it invented — the most directly useful output in the family.
+- **`tag_evaluation_v4.py`** — breadth instead of depth: `fuzzy_match_ratio` (normalised
+  Levenshtein, `:52-77`), `jaro_winkler_match_ratio` (`:79-99`), embedding-threshold matching
+  at 0.75 (`:101-127`), and **translate-then-compare** via EasyNMT/opus-mt (`:129-153`) so a
+  Finnish gold tag can match an English generated one. Every heavy dependency is behind a
+  `try/except ImportError` so the script degrades instead of crashing (`:21-25`, `:166-172`).
+  Also the only one with per-language metric breakdown (`:333-346`).
+- **`tag_evaluation_v35.py`** — **the correction of v3, and the most interesting file here.**
+  v3's `calculate_emd` (`v3:45-64`) is *not* EMD: it takes each source embedding's **minimum**
+  distance to any target and averages them — a one-directional Chamfer/nearest-neighbour
+  distance, which is asymmetric and ignores how mass is distributed. (v3 even imports
+  `wasserstein_distance` at `:7` and never uses it.) v3.5 replaces it with genuine optimal
+  transport (`:28-47`): uniform weights over each tag set, a cosine cost matrix, and
+  `ot.emd` solving the transport plan. **Recognising that your own metric was not the metric
+  you named it after, and going back to fix it, is the single best moment in this family.**
+- **`tag_evaluation_lang.py`** — asks a different question: not "are the tags right" but
+  "**is the model answering in the right language**". Runs `langdetect` per tag and builds a
+  gold-language × generated-language **confusion matrix** (`:31-32`, `:66-67`) plus a
+  `language_consistency_rate` (`:98`). Its outputs are the three
+  `tag_language_analysis_2025*.json` files still at repo root.
+
+#### Group B — the JSON integrity checkers (Nov 2024, all read `data_collection/output.json`)
+
+Three near-identical structural profilers over the raw DSpace dump, each answering one question
+and flagging with one-letter codes: `json_data_integrity_checker.py` (field presence + type
+spread, flags `L`=less-frequent, `D`=diverse-types), `json_data_format_analyzer.py` (same plus
+`N`=contains-null, and it reads `key`/`value` properly rather than raw dict items),
+`json_value_occurrence_counter.py` (every distinct value per field, with counts — the crude
+ancestor of the tag-frequency work). Their outputs (`output_*.json`) sit beside them.
+
+**`json_dataset_field_metric.py`** is the substantive one — min/max/avg title, abstract and
+tag-count statistics with the offending record's id attached, plus an anomaly list. **Two of
+its "anomaly" rules are project history in miniature:** `:75-79` flags any record whose
+`faculty` count **≠ 2** as unusual — because JYU stores each faculty twice, Finnish and English
+names — and `:82-86` flags **"Multiple abstracts found"** as an anomaly. That second rule is
+the two-abstract case *being reported as a defect*, written months before the project decided
+it was **augmentation**. The realisation recorded in Cycle 1 Q5 is visible here as the bug
+report that preceded it.
+
+#### Group C — two one-offs
+
+- **`analyze_faculty_field.py` / `_v2.py`** (May 2025) — faculty normalisation and counting
+  over `data_split_v4/full_dataset.json`, deduplicating by `original_identifier` (`v2:46-49`)
+  so the abstract-augmented rows don't double-count. `v2`'s `faculty_mapping` (`:11-33`) is the
+  **fullest FI↔EN faculty dictionary in the repo** — 21 surface forms → 9 canonical faculties,
+  a superset of the one in the buried `field_processor.py`. Writes `outputs_2/`.
+- **`weights_check.py`** (Apr 11) — **forensics on a checkpoint that no longer exists.** Loads
+  `model_embedding/model_output_1n_20250228_131012/checkpoint-668` (the GCV_singleSoft "1n"
+  run, deleted in Cycle 3) and prints per-`Linear`-layer weight/bias mean-abs, variance, min and
+  max, then loads the base model for comparison. The diagnostic question: *did fine-tuning
+  actually move the weights, or is this checkpoint essentially its initialisation?* Its output,
+  `weights_check_output.txt` (1339 lines, repo root), is now the **only surviving measurement of
+  a Cycle-3 checkpoint** — see the weights ledger below.
+
+**Distinguishing techniques worth preserving (thesis material):**
+- **embedding-based tag matching** for a bilingual tag space (v3/v4) — string equality
+  systematically under-scores a model that is semantically right in the other language;
+- **true optimal-transport EMD between two tag sets** (v3.5 `:28-47`) — and the lesson that
+  mean-of-min-distance is *not* EMD;
+- **translate-then-compare** as a cross-language evaluation control (v4 `:129-153`);
+- **language confusion matrix** for generation output (`tag_evaluation_lang.py`);
+- **missing-vs-invented tag lists** (`v3:192-235`) — the cheapest genuinely diagnostic output;
+- **weight-statistics forensics** to test whether training moved a checkpoint (`weights_check.py`);
+- graceful `ImportError` degradation for optional heavy deps (v4 `:21-25`).
+
+**Latent blunders carried by the family (see quiz):**
+1. **The headline metric is misnamed and, given Cycle 1, nearly vacuous.** `|A ∩ B| / max(|A|,|B|)`
+   is called "exact match ratio" in every version. Worse: the Cycle-1 prompts fed the model
+   `tag_count = len(original tags)`, so `|B| = |A|` by construction — the denominator collapses
+   and the metric degenerates to `|A ∩ B| / |A|`, where precision, recall and this "ratio" are
+   **all the same number**. A leak upstream turned a set-comparison metric into a single
+   accuracy figure without anyone choosing that.
+2. **v3's "EMD" is not EMD** (`v3:45-64`) — fixed in v3.5, but any result reported from v3 is
+   labelled with a metric it did not compute.
+3. **Empty gold set scores 0.0** (`:8-9` in v1/v2/v4) — a thesis with no tags is counted as a
+   model failure. The data's gap becomes the model's fault, silently depressing every average.
+4. **Per-tag `langdetect`** (`tag_evaluation_lang.py:15-19`) — `langdetect` is unreliable on
+   single words, and tags are single words. The confusion matrix is directionally useful and
+   numerically soft; don't quote its rates precisely.
+5. **v4 is interactive** (`:444`, `:453` call `input()`), yet `boa_strangling/main.py:312` runs
+   it as a **non-interactive subprocess** — Step 4 either blocks on stdin or takes whatever
+   EOF gives it. The live pipeline's evaluation step is, in practice, running v4 with both
+   translation and embeddings **off**.
+6. **Hard-coded input paths everywhere** (`generated_tags_results.json` vs
+   `…_union_tags.json`), so which file a given evaluation scored is recoverable only from the
+   script version, not from its output.
+
+**Pipeline position:** terminal. Input = `generated_tags_results*.json` (Cycle-1 output) and
+`data_collection/output.json` (raw dump). Output = `tag_evaluation_2025*/`,
+`evaluation_results*/`, `tag_language_analysis_2025*.json`, `tag_evaluation_metrics.json`,
+`tag_visualization_data.json`, `outputs_2/`, `weights_check_output.txt` — all still at repo root.
+
+**Recovery anchor:** `origin/master` **and** `a3c516c`.
+
+**Buried:** _pending quiz._ **Kept:** `tag_evaluation_v4.py` — **forced, not chosen**: it is
+Step 4 of the live pipeline. The genuinely better ideas live in `v3.5` (true EMD) and
+`v3` (missing/invented tag lists); if Step 4 is ever ported into `boa_strangling/scripts/`,
+port those, not v4's string-similarity suite.
+
+---
+
 ## WEIGHTS LEDGER (untracked — record is the only surviving trace)
 
 ### `model_embedding/` — 125 G — **reclaimed 2026-07-25**
@@ -355,6 +506,25 @@ The checkpoint + `tag_mapping.pickle` output of the `model_training_GCV_*` runs
 `tokenized_datasets/` cache. No idea lives here that isn't in the GCV autopsy above;
 regenerable from `boa_strangling/scripts/train.py` + data. Permanent `rm`. (Also held 4
 tracked alt-encoder scripts — see sub-family entry.)
+
+**The one measurement that outlived the weights.** `data_validation/weights_check.py` was run
+against `model_output_1n_20250228_131012/checkpoint-668` — the GCV_singleSoft "1n" soft-CE run —
+and its output survives as `weights_check_output.txt` (1339 lines, repo root). What it records,
+now unrepeatable:
+- **The checkpoint had 16,910 labels** (`classifier.out_proj` weight shape `[16910, 768]`) — the
+  full unfiltered tag vocabulary of the old dataset, before any `min_freq` filter. For scale,
+  the live `min5` split carries ~8.7 k labels.
+- **The classification head barely moved from initialisation.** Fine-tuned
+  `classifier.out_proj` weight mean-abs = **0.015977** (var 0.000401); the freshly-initialised
+  base head measured in the same run = **0.016183** (var 0.000407). `classifier.dense` bias is
+  ~0 in both. The encoder body shows normal pre-trained statistics, so the model loaded fine —
+  it is specifically the **head** that looks untrained.
+- **Read with Cycle 2 Q3 in mind:** this is the soft-target (`1/k` distribution + CrossEntropy)
+  experiment, and the user's stated reason for trying it was *bad, low-confidence output*. A
+  head sitting at initialisation scale is consistent with that complaint having a mechanical
+  cause. Suggestive, not proof — mean-abs is a coarse statistic — but it is the only evidence
+  that now exists, and it points at 16,910 near-all-zero soft targets giving the head almost
+  no gradient signal.
 
 ### `llama_model/` — 8.3 G — **KEPT (2026-07-25, user decision — still works)**
 - `Meta-Llama-3.1-8B-Instruct.Q8_0.llamafile` (8.7 G, Oct 2024) — the local LLM the

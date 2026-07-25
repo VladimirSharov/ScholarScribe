@@ -283,6 +283,62 @@ provenance that aren't in the code.**
 
 **Verdict:** understanding verified. The blind spots (Q1 leakage rationale, Q3 exact cause,
 Q4 always-train bias) are now recorded above; Q2's diagnosis was *confirmed* by the user's own
-recollection of fin-then-eng ordering. `data_preparation/` cleared for burial pending the
-user's final word; keeper = none.
+recollection of fin-then-eng ordering. `data_preparation/` **buried 2026-07-25** (commit
+`40f0431`); keeper = none.
+
+---
+
+## Cycle 6 — `data_validation/` family (13 scripts: 6 evaluators, 4 JSON checkers, 3 one-offs)
+
+**Dependency check — THE RITUAL JUST EARNED ITS KEEP.** `tag_evaluation_v4.py` is **not dead**:
+`boa_strangling/main.py:303-312` is Step 4 of the live pipeline — it builds the path,
+**`sys.exit(1)`s if the file is missing**, and **runs it as a subprocess**. It is never
+*imported*, which is exactly why every previous "no imports from the graveyard" check passed
+over it. This is the load-bearing corpse the quiz-gate exists to catch. (`main.py:324-337`
+similarly runs three `images/` scripts, but those skip gracefully — a problem for that cycle,
+not this one.) Everything else in the directory is unreferenced. Recovery anchor: `origin/master`
+and `a3c516c`. → safe **except** `tag_evaluation_v4.py`.
+
+**Quiz (answer in chat; I'll grade + record):**
+
+1. **The metric you reported for a year.** Every evaluator computes
+   `len(matches) / max(len(original), len(generated))` and calls it **"exact match ratio"**
+   (`tag_evaluation.py:6-15`). Two problems. (a) It is not exact match — what would exact match
+   actually be, and what is this formula really measuring? (b) Now connect it to your Cycle-1
+   confession: you fed the generator `tag_count = len(original tags)`. **What happens to that
+   denominator when the model is forced to output exactly as many tags as the gold set — and
+   what does the metric silently collapse into?**
+
+2. **The best moment in this family — say why you did it.** `v3` computes its "EMD" as: for
+   each gold tag embedding take the **minimum** cosine distance to any generated tag, then
+   average (`tag_evaluation_v3.py:45-64`). Nine days after v4, you wrote `v35` replacing that
+   with `ot.emd` — a real optimal-transport solve over a cost matrix
+   (`tag_evaluation_v35.py:28-47`). What is wrong with the first version — what can it not
+   see that transport can? (Hint: think about a model that outputs one excellent tag and nine
+   junk ones, versus one that outputs ten decent ones.)
+
+3. **v4 and v3.5 are siblings, not successors.** `v4` (May 9) went for Levenshtein +
+   Jaro-Winkler + translate-to-English; `v35` (May 18) went for embeddings + optimal transport.
+   Both are attacking the *same* underlying problem — the one that makes plain string equality
+   the wrong scorer for this dataset. **Name that problem**, and say which of the two branches
+   you think actually addresses it, and why the other is treating a symptom.
+
+4. **The nastiest small thing.** In `v1`/`v2`/`v4` the metric opens with
+   `if not original_tags or not generated_tags: return 0.0`. Describe the case where the
+   **gold** side is empty, what score that thesis contributes, and why that quietly biases
+   every average you ever reported. What should it have done instead?
+
+5. **The bug report that became a feature.** `json_dataset_field_metric.py:82-86` flags
+   `"Multiple abstracts found"` as an **anomaly**, and `:75-79` flags any record whose faculty
+   count is **≠ 2** as unusual. For each: what was the underlying reality, and which of the two
+   turned out to be a genuine defect versus a misunderstanding of your own data? (One of these
+   is the exact moment from Cycle 1 Q5, caught in code months before you understood it.)
+
+6. **The forced keeper — your call is needed.** `tag_evaluation_v4.py` cannot be deleted: it is
+   Step 4 of `main.py`. But note `v4:444` and `:453` call `input()` and `main.py:312` runs it
+   as a non-interactive subprocess. (a) What does that mean Step 4 has actually been computing
+   every time it ran? (b) If Step 4 were ported into `boa_strangling/scripts/`, which ideas
+   from this family would you carry — v4's string-similarity suite, or something else?
+
+**Reckoning:** _awaiting your answers._
 

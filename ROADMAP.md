@@ -72,6 +72,28 @@ These exist only on disk, not in git:
 - `rebuild_dataset_from_log.py`, `comparation_language_prompts.py`
 - Entire `boa_strangling/` directory
 
+### 0.6 VS Code Quick Open only finds root-level files (open, 2026-08-01)
+
+**Symptom:** `Ctrl+P` matches files at the repo root but **nothing inside any
+subdirectory** — e.g. `tag_eval` does not surface `data_validation/tag_evaluation_v4.py`.
+Git decorations on root files also looked absent. Reloading the window did **not** fix it.
+Session is Remote-SSH (`ScholarScribe [SSH: mainmachine]`).
+
+**Already ruled out — don't re-test these:**
+- Not gitignored: `git check-ignore -v data_validation/tag_evaluation_v4.py` → no match.
+- Not untracked: all six `tag_evaluation*.py` are tracked (`git ls-files data_validation/`
+  → 19 files).
+- Not a wrong workspace root: user confirmed the window is rooted at `ScholarScribe`.
+- Not workspace size: the repo is only **1,041 files** total (the 46 G is a few huge
+  files, not many small ones), so the indexer is not being strained.
+- `.vscode/settings.json` carries no `files.exclude` / `search.exclude` entries.
+
+**Where to look next:** user's hypothesis is that nested indexing never ran. Check the
+*user-level* (not workspace) `settings.json` on the remote for `search.exclude` /
+`files.exclude` globs, `search.quickOpen.includeIgnoredFiles`, and whether the
+Remote-SSH server's ripgrep is functional (`Developer: Toggle Developer Tools` →
+console errors on search). Nuisance only — it does not affect the pipeline.
+
 ---
 
 ## Phase 1 — Add a Second University Dataset

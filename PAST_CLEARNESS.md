@@ -340,5 +340,84 @@ and `a3c516c`. → safe **except** `tag_evaluation_v4.py`.
    every time it ran? (b) If Step 4 were ported into `boa_strangling/scripts/`, which ideas
    from this family would you carry — v4's string-similarity suite, or something else?
 
-**Reckoning:** _awaiting your answers._
+**Reckoning (2026-08-01) — user's answers + resolution. Grade ≈ 4/6, and Q6 turned up a
+live pipeline defect.**
+
+1. *User:* "maybe it finds best metric of original against generated… with `max` we get a
+   smaller ratio, well it should be equal and `max` doesn't matter… maybe I was greedy, or
+   in case of failure where a value could be missed, to make sure I grab a good one."
+   **✓ — got the trap.** With `tag_count = len(original)` forced (the Cycle-1 confession),
+   `len(generated) == len(original)`, so `max(...)` **is dead code** — exactly as said. What
+   the metric then collapses into: `|A∩B| / |A|`, where **precision == recall == the score**.
+   Every guard against over- or under-generation is gone, because over/under-generation was
+   made impossible upstream. (b) And it is not exact match: real exact match is **subset
+   accuracy** — a binary 1 only if the predicted set *equals* the gold set. This is a soft
+   overlap ratio, and it is *optimistic* even against Jaccard (`max(|A|,|B|) ≤ |A∪B|`).
+   Calling it "exact match ratio" makes every number reported from it incomparable to
+   anything in the literature under that name.
+
+2. *User:* "EMD… I assume it squashes all hardship… maybe one of the reasons for
+   overconfidence in top-6 tags." **~ half — right instinct, mechanism unnamed.** The flaw in
+   `v3`: taking, for each *gold* tag, the **minimum** distance to any generated tag is a
+   one-sided nearest-neighbour match **with replacement**. One excellent generated tag can be
+   the nearest neighbour for *every* gold tag, and the nine junk tags are **never selected, so
+   never charged**. There is no precision term at all. Hence: 1 great + 9 junk scores as well
+   as 10 decent — the exact case in the hint. Optimal transport (`ot.emd`) fixes this by
+   conserving mass: **every** generated tag must ship its mass somewhere and pay the cost, so
+   junk finally costs something. **The top-6 link is a genuinely good catch** — a min-based
+   score rewards *having more candidates* (more chances to be somebody's minimum), which is
+   direct pressure toward over-generation and inflated top-k confidence.
+
+3. *User:* "v4 vs v35 is about the multilingual dataset — education in English and Finnish
+   mean the same thing, yet for the model they're different tags; translation could be
+   inaccurate and expensive… embeddings could be different for different-language words."
+   **✓ — named the problem correctly.** It is **cross-lingual synonymy plus Finnish
+   morphology**: `kasvatustiede` / `kasvatustieteet` / `education` are one concept and three
+   strings, so plain equality scores a *correct* model as wrong. Which branch addresses it:
+   **`v35` (embeddings + OT)**. `v4`'s Levenshtein/Jaro-Winkler catches inflection and typos
+   *within* a language but is blind across languages — `education` vs `kasvatustiede` share
+   almost no characters — so it treats the symptom and then bolts on translation, a lossy,
+   expensive external dependency with its own error rate. **The stated doubt about embeddings
+   is answered by the code:** `tag_evaluation_v35.py:81` loads
+   `paraphrase-multilingual-MiniLM-L12-v2` — a model trained specifically so that paraphrases
+   across languages land in the *same* region of the space. The worry was the right question;
+   the right model had already been chosen.
+
+4. *User:* "I assume to avoid zero division or discard bad cases… I should have used a metric
+   which acknowledges bad cases." **~ half.** The *intent* is right (`tag_evaluation.py:6-15`
+   guards division). The damage is the part left unnamed: returning **`0.0`** conflates
+   *"unmeasurable"* with *"maximally wrong."* A thesis with **no gold tags** is not a model
+   failure — there is nothing to match — yet it contributes a hard zero to the mean. So every
+   average ever reported is an **underestimate**, biased by however many untagged theses the
+   dataset holds; and since JYU and Tampere have different untagged rates, it silently
+   corrupts any cross-source comparison. Correct behaviour: **exclude** those records and
+   report `N` excluded (and treat empty-gold + empty-generated as agreement, not failure).
+
+5. *User:* "multiple abstracts is fine, yet needs a split; faculty count ≠ 2 is unusual
+   because ~90% of cases have fin and eng of the same faculty." **✓✓ — both right, and
+   correctly separated.** `json_dataset_field_metric.py:82-86` flagging *"Multiple abstracts
+   found"* as an **anomaly** is the **misunderstanding of one's own data** — and it is the
+   Cycle-1 Q5 moment, sitting in code months before it was understood. That "anomaly" is
+   multi-language abstracts, which later became **deliberate augmentation** (one training
+   record per language). By contrast `:75-79`, flagging `faculty_count != 2`, is the
+   **genuine defect detector**: the field carries the fin+eng name of the *same* faculty, so
+   2 is structurally the norm and ≠2 really does mean a malformed record.
+
+6. *User:* "I don't know, maybe some sort of embeddings?" **✗ on (a), ✓ on (b) — and (a) is
+   worse than expected.** Evidence gathered 2026-08-01, this environment:
+   `sentence_transformers` is **installed**, `easynmt` is **not**. So in the non-interactive
+   subprocess the translation prompt at `tag_evaluation_v4.py:444` is skipped (no translator),
+   execution reaches the embedding prompt at **`:453`**, calls `input()` on an **empty stdin**,
+   and raises **`EOFError`** — *before evaluating a single thesis*. `boa_strangling/main.py:312`
+   captures the non-zero return code and `sys.exit(rc)`s on it. **Therefore Step 4 has been
+   computing nothing at all, and killing the whole pipeline when it runs.** The answer to
+   "what has Step 4 actually been computing every time it ran" is: **it has never run to
+   completion in non-interactive mode.** (b) **✓** — embeddings is the right thing to carry:
+   port `v35`'s multilingual-embedding + optimal-transport scorer, not `v4`'s string suite.
+
+**Resolution — Cycle 6 keeps a body.** `tag_evaluation_v4.py` cannot be deleted while
+`main.py:303-312` hard-requires it. But it is now known to be **broken as wired**, so it is a
+keeper only in the sense that removing the file turns a silent failure into a loud one. The
+real fix, deferred to a scoped task and **not** part of this burial: port the `v35` scorer
+into `boa_strangling/scripts/` and repoint Step 4 at it, dropping the interactive prompts.
 
